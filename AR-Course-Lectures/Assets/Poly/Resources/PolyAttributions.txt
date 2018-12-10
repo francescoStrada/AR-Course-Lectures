@@ -1,0 +1,13 @@
+This project uses the following items from Poly (http://poly.google.com):
+
+Title: Low poly book
+Author: Anastasiia Ku
+URL: https://poly.google.com/view/0-_UGETLPsX
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Vending Machine
+Author: Don Carson
+URL: https://poly.google.com/view/0CX6wj64Swu
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
