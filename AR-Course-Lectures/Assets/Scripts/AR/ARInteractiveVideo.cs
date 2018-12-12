@@ -8,10 +8,11 @@
 using UnityEngine;
 using Vuforia;
 using UnityEngine.Video;
+using System;
 
 // global declaration end
 
-class ARInteractiveVideo : DefaultTrackableEventHandler
+class ARInteractiveVideo : ARInteractable
 {
 
     protected VideoPlayer videoPlayer;
@@ -28,22 +29,22 @@ class ARInteractiveVideo : DefaultTrackableEventHandler
     }
 
 
-    protected override void OnTrackingFound()
+    protected override void OnTrackingFound(object sender,EventArgs args)
     {
-      base.OnTrackingFound();
+      base.OnTrackingFound(sender, args);
     
-      if(videoPlayer != null)
+      if(activateOnTrackingFound && videoPlayer != null)
       {
     	videoPlayer.Play();
       }
     }
 
 
-    protected override void OnTrackingLost()
+    protected override void OnTrackingLost(object sender,EventArgs args)
     {
-      base.OnTrackingLost();
+      base.OnTrackingLost(sender, args);
      
-      if(videoPlayer != null)
+      if(activateOnTrackingFound && videoPlayer != null)
       {
     	videoPlayer.Pause();
       }

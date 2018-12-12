@@ -9,10 +9,11 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.Video;
 using UnityEngine.Playables;
+using System;
 
 // global declaration end
 
-class ARInteractiveAnimation : DefaultTrackableEventHandler
+class ARInteractiveAnimation : ARInteractable
 {
 
     protected PlayableDirector director;
@@ -27,12 +28,12 @@ class ARInteractiveAnimation : DefaultTrackableEventHandler
     }
 
 
-    protected override void OnTrackingFound()
+    protected override void OnTrackingFound(object sender,EventArgs args)
     {
-      base.OnTrackingFound();
+      base.OnTrackingFound(sender, args);
     
       // add specific behaviour at target found
-      if(director != null)
+      if(activateOnTrackingFound && director != null)
       {
     	if(director.state == PlayState.Paused)
     		director.Resume();
@@ -42,11 +43,11 @@ class ARInteractiveAnimation : DefaultTrackableEventHandler
     }
 
 
-    protected override void OnTrackingLost()
+    protected override void OnTrackingLost(object sender,EventArgs args)
     {
-      base.OnTrackingLost();
+      base.OnTrackingLost(sender, args);
       // add specific behaviour at target lost
-      if(director != null)
+      if(activateOnTrackingFound && director != null)
     	director.Pause();
      
     }

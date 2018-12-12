@@ -8,10 +8,11 @@
 using UnityEngine;
 using Vuforia;
 using UnityEngine.Video;
+using System;
 
 // global declaration end
 
-class ARInteractiveAudio : DefaultTrackableEventHandler
+class ARInteractiveAudio : ARInteractable
 {
 
     protected AudioSource audioSource;
@@ -26,23 +27,23 @@ class ARInteractiveAudio : DefaultTrackableEventHandler
     }
 
 
-    protected override void OnTrackingFound()
+    protected override void OnTrackingFound(object sender,EventArgs args)
     {
-      base.OnTrackingFound();
+      base.OnTrackingFound(sender, args);
     
       // add specific behaviour at target found
-      if(audioSource != null)
+      if(activateOnTrackingFound && audioSource != null)
       {
     	audioSource.Play();
       }
     }
 
 
-    protected override void OnTrackingLost()
+    protected override void OnTrackingLost(object sender,EventArgs args)
     {
-      base.OnTrackingLost();
+      base.OnTrackingLost(sender, args);
       // add specific behaviour at target lost
-      if(audioSource != null)
+      if(activateOnTrackingFound && audioSource != null)
       {
     	audioSource.Pause();
       }

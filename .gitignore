@@ -39,3 +39,5 @@ sysinfo.txt
 *.bak
 *.bak.meta
 *.sls.meta
+*.gpp
+*.gpp.meta
