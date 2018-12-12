@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="arizona-monument-valley" size="0.150000 0.108810" />
+    <ImageTarget name="pyramid" size="0.150000 0.084844" />
+    <ImageTarget name="easter_island" size="0.150000 0.084150" />
+    <ImageTarget name="stonehenge" size="0.150000 0.103050" />
+    <ImageTarget name="stones_01" size="0.150000 0.105000" />
+  </Tracking>
+</QCARConfig>
