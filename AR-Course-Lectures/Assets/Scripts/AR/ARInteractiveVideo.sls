@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 8:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
+:ArrayOb.273{6:Dictionary.4369{16 9:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{9 10 "OnDestroy"}
@@ -79,12 +79,12 @@ using System;"}
  1.3 0.88 5.6 21  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{126 276 "\[\n
+ 1  1 #4{117 276 "\[\n
   base.OnTrackingLost(sender, args);\n
  \n
   if(activateOnTrackingFound && videoPlayer != null)\n
   \[\n
-\tvideoPlayer.Pause();\n
+\tInteract();\n
   \]\n
 \]\n
 "}
@@ -100,12 +100,12 @@ using System;"}
  1.3 0.88 6 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{125 241 "\[\n
+ 1  1 #4{94 241 "\[\n
   base.OnTrackingFound(sender, args);\n
 \n
-  if(activateOnTrackingFound && videoPlayer != null)\n
+  if(activateOnTrackingFound)\n
   \[\n
-\tvideoPlayer.Play();\n
+\tInteract();\n
   \]\n
 \]\n
 "}
@@ -129,6 +129,29 @@ using System;"}
 #4{0 2 ""}
 @0 #4{0 1 ""}
 }
+:SLSPublicMethod.286331408{#4{8 9 "52566360"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{8 9 "Interact"}
+ 1.3 0.88 3.2 1  6 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{136 137 "\[\n
+  base.Interact();\n
+  if(videoPlayer != null)\n
+  \[\n
+\tif(!videoPlayer.isPlaying)\n
+\t\tvideoPlayer.Play();\n
+\telse\n
+\t\tvideoPlayer.Pause();\n
+  \]\n
+\]\n
+"}
+#4{8 9 "Interact"}
+#4{13 14 "override void"}
+#4{0 1 ""}
+#4{0 1 ""}
+}
 }
 :CLSCSSem.1118481{ 56  51 @82 @15 @23 @0 #8{16 0}
 #8{16 1@31 }
@@ -140,13 +163,13 @@ using System;"}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #8{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@96 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #8{16 0}
  0}
 :Float.17{0 }
-#11{1 }
-#11{0 }
-#11{1 }
+#12{1 }
+#12{0 }
+#12{1 }
 }

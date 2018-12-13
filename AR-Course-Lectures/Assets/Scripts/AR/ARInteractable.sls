@@ -63,15 +63,19 @@
 :SLSPublicMethod.286331408{#4{8 9 "45174256"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "OnTap"}
- 1.3 0.88 2 1  6 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{8 9 "Interact"}
+ 1.3 0.88 3.2 1  6 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{38 49 "\[\n
+ 1  1 #4{151 152 "\[\n
   // implement specific behaviour\n
+  if(activateOnTrackingFound)\n
+\treturn;\n
+  \n
+  Debug.Log(\"Executing Interact Behaviour on GO: \" + gameObject.name);\n
 \]\n
 "}
-#4{5 6 "OnTap"}
+#4{8 9 "Interact"}
 #4{12 13 "virtual void"}
 #4{0 1 ""}
 #4{0 1 ""}

@@ -60,4 +60,20 @@ class ARInteractiveAnimation : ARInteractable
     }
 
 
+
+
+    public override void Interact()
+    {
+      base.Interact();
+    
+      if(director != null)
+      {
+    	if(director.state == PlayState.Paused)
+    		director.Resume();
+      	else
+    		director.Play();
+      }
+    }
+
+
 }

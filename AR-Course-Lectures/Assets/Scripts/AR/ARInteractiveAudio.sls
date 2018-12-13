@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 8:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
+:ArrayOb.273{6:Dictionary.4369{16 9:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{9 10 "OnDestroy"}
@@ -36,28 +36,6 @@ using System;"}
 @0  0 0 1
  0  0 #4{0 1 ""}
 }
-#3{#4{8 9 "90855033"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{14 15 "OnTrackingLost"}
- 1.3 0.88 5.6 21  9 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{168 276 "\[\n
-  base.OnTrackingLost(sender, args);\n
-  // add specific behaviour at target lost\n
-  if(activateOnTrackingFound && audioSource != null)\n
-  \[\n
-\taudioSource.Pause();\n
-  \]\n
-\n
-\]\n
-"}
-#4{14 16 "OnTrackingLost"}
-#4{13 14 "override void"}
-#4{28 29 "object sender,EventArgs args"}
-#4{0 1 ""}
- 0}
 #3{#4{8 9 "90855817"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -77,6 +55,28 @@ using System;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#3{#4{8 9 "90855033"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{14 15 "OnTrackingLost"}
+ 1.3 0.88 5.6 21  9 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{159 276 "\[\n
+  base.OnTrackingLost(sender, args);\n
+  // add specific behaviour at target lost\n
+  if(activateOnTrackingFound && audioSource != null)\n
+  \[\n
+\tInteract();\n
+  \]\n
+\n
+\]\n
+"}
+#4{14 16 "OnTrackingLost"}
+#4{13 14 "override void"}
+#4{28 29 "object sender,EventArgs args"}
+#4{0 1 ""}
+ 0}
 #3{#4{8 9 "90855032"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -84,13 +84,13 @@ using System;"}
  1.3 0.88 6 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{169 241 "\[\n
+ 1  1 #4{138 241 "\[\n
   base.OnTrackingFound(sender, args);\n
 \n
   // add specific behaviour at target found\n
-  if(activateOnTrackingFound && audioSource != null)\n
+  if(activateOnTrackingFound)\n
   \[\n
-\taudioSource.Play();\n
+\tInteract();\n
   \]\n
 \]\n
 "}
@@ -130,24 +130,48 @@ using System;"}
 #4{0 2 ""}
 @0 #4{0 1 ""}
 }
+:SLSPublicMethod.286331408{#4{8 9 "52566360"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{8 9 "Interact"}
+ 1.3 0.88 3.2 1  6 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{137 138 "\[\n
+  base.Interact();\n
+\n
+  if(audioSource != null)\n
+  \[\n
+\tif(!audioSource.isPlaying)\n
+\t\taudioSource.Play();\n
+\telse\n
+\t\taudioSource.Pause();\n
+  \]\n
+\]\n
+"}
+#4{8 9 "Interact"}
+#4{13 14 "override void"}
+#4{0 1 ""}
+#4{0 1 ""}
+}
 }
 :CLSCSSem.1118481{ 56  51 @82 @15 @23 @0 #8{16 0}
 #8{16 1@67 }
 #8{16 0}
-#8{16 4@43 @55 @31 @3 }
+#8{16 4@31 @55 @43 @3 }
 #8{16 0}
 #8{16 0}
 #8{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #8{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@96 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #8{16 0}
  0}
 :Float.17{0 }
-#11{1 }
-#11{0 }
-#11{1 }
+#12{1 }
+#12{0 }
+#12{1 }
 }

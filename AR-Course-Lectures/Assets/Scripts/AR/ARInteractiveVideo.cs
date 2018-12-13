@@ -33,9 +33,9 @@ class ARInteractiveVideo : ARInteractable
     {
       base.OnTrackingFound(sender, args);
     
-      if(activateOnTrackingFound && videoPlayer != null)
+      if(activateOnTrackingFound)
       {
-    	videoPlayer.Play();
+    	Interact();
       }
     }
 
@@ -46,7 +46,7 @@ class ARInteractiveVideo : ARInteractable
      
       if(activateOnTrackingFound && videoPlayer != null)
       {
-    	videoPlayer.Pause();
+    	Interact();
       }
     }
 
@@ -54,6 +54,21 @@ class ARInteractiveVideo : ARInteractable
     protected override void OnDestroy()
     {
       base.OnDestroy();
+    }
+
+
+
+
+    public override void Interact()
+    {
+      base.Interact();
+      if(videoPlayer != null)
+      {
+    	if(!videoPlayer.isPlaying)
+    		videoPlayer.Play();
+    	else
+    		videoPlayer.Pause();
+      }
     }
 
 

@@ -71,9 +71,13 @@ class ARInteractable : MonoBehaviour
 
 
 
-    public virtual void OnTap()
+    public virtual void Interact()
     {
       // implement specific behaviour
+      if(activateOnTrackingFound)
+    	return;
+      
+      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
     }
 
 
