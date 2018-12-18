@@ -33,9 +33,9 @@ class ARInteractiveVideo : ARInteractable
     {
       base.OnTrackingFound(sender, args);
     
-      if(activateOnTrackingFound)
+      if(activateOnTrackingFound && videoPlayer != null)
       {
-    	Interact();
+    	videoPlayer.Play();
       }
     }
 
@@ -44,9 +44,9 @@ class ARInteractiveVideo : ARInteractable
     {
       base.OnTrackingLost(sender, args);
      
-      if(activateOnTrackingFound && videoPlayer != null)
+      if(videoPlayer != null)
       {
-    	Interact();
+    	videoPlayer.Pause();
       }
     }
 

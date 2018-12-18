@@ -32,9 +32,9 @@ class ARInteractiveAudio : ARInteractable
       base.OnTrackingFound(sender, args);
     
       // add specific behaviour at target found
-      if(activateOnTrackingFound)
+      if(activateOnTrackingFound && audioSource != null)
       {
-    	Interact();
+    	audioSource.Play();
       }
     }
 
@@ -43,9 +43,9 @@ class ARInteractiveAudio : ARInteractable
     {
       base.OnTrackingLost(sender, args);
       // add specific behaviour at target lost
-      if(activateOnTrackingFound && audioSource != null)
+      if(audioSource != null)
       {
-    	Interact();
+    	audioSource.Pause();
       }
     
     }

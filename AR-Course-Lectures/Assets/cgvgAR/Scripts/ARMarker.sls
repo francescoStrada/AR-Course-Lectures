@@ -5,7 +5,8 @@
  0.299999 0.88 7.2 33  3 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 0  0 #4{77 78 "using UnityEngine;\n
+ 0  0 #4{96 97 "using UnityEngine;\n
+using UnityEditor;\n
 using UnityEngine.Assertions;\n
 using System;\n
 using Vuforia;"}

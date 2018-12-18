@@ -62,12 +62,12 @@ using System;"}
  1.3 0.88 5.6 21  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{159 276 "\[\n
+ 1  1 #4{141 276 "\[\n
   base.OnTrackingLost(sender, args);\n
   // add specific behaviour at target lost\n
-  if(activateOnTrackingFound && audioSource != null)\n
+  if(audioSource != null)\n
   \[\n
-\tInteract();\n
+\taudioSource.Pause();\n
   \]\n
 \n
 \]\n
@@ -84,13 +84,13 @@ using System;"}
  1.3 0.88 6 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{138 241 "\[\n
+ 1  1 #4{169 241 "\[\n
   base.OnTrackingFound(sender, args);\n
 \n
   // add specific behaviour at target found\n
-  if(activateOnTrackingFound)\n
+  if(activateOnTrackingFound && audioSource != null)\n
   \[\n
-\tInteract();\n
+\taudioSource.Play();\n
   \]\n
 \]\n
 "}

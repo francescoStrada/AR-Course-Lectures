@@ -37,8 +37,8 @@ class ARInteractiveAnimation : ARInteractable
       {
     	if(director.state == PlayState.Paused)
     		director.Resume();
-      	else
-    		director.Play();
+    
+    	director.Play();
       }
     }
 
@@ -69,10 +69,15 @@ class ARInteractiveAnimation : ARInteractable
       if(director != null)
       {
     	if(director.state == PlayState.Paused)
+    	{
     		director.Resume();
-      	else
     		director.Play();
+    	}	
+    	else
+    		director.Pause();
+    		
       }
+      
     }
 
 

@@ -37,25 +37,6 @@ using System;"}
 @0  0 0 1
  0  0 #4{0 1 ""}
 }
-#3{#4{8 9 "90855817"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Start"}
- 1.3 0.88 2 10  8 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{123 402 "\[\n
-  base.Start();\n
-  \n
-  // add specific behaviour at startup\n
-  director = GetComponentInChildren<PlayableDirector>(true);\n
-\]\n
-"}
-#4{5 6 "Start"}
-#4{13 14 "override void"}
-#4{0 1 ""}
-#4{0 1 ""}
- 0}
 #3{#4{8 9 "90855033"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -76,6 +57,25 @@ using System;"}
 #4{28 29 "object sender,EventArgs args"}
 #4{0 1 ""}
  0}
+#3{#4{8 9 "90855817"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{5 6 "Start"}
+ 1.3 0.88 2 10  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{123 402 "\[\n
+  base.Start();\n
+  \n
+  // add specific behaviour at startup\n
+  director = GetComponentInChildren<PlayableDirector>(true);\n
+\]\n
+"}
+#4{5 6 "Start"}
+#4{13 14 "override void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 #3{#4{8 9 "90855032"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -83,7 +83,7 @@ using System;"}
  1.3 0.88 6 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{233 241 "\[\n
+ 1  1 #4{225 241 "\[\n
   base.OnTrackingFound(sender, args);\n
 \n
   // add specific behaviour at target found\n
@@ -91,8 +91,8 @@ using System;"}
   \[\n
 \tif(director.state == PlayState.Paused)\n
 \t\tdirector.Resume();\n
-  \telse\n
-\t\tdirector.Play();\n
+\n
+\tdirector.Play();\n
   \]\n
 \]\n
 "}
@@ -139,16 +139,21 @@ using System;"}
  1.3 0.88 3.2 1  6 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{143 144 "\[\n
+ 1  1 #4{174 183 "\[\n
   base.Interact();\n
 \n
   if(director != null)\n
   \[\n
 \tif(director.state == PlayState.Paused)\n
+\t\[\n
 \t\tdirector.Resume();\n
-  \telse\n
 \t\tdirector.Play();\n
+\t\]\t\n
+\telse\n
+\t\tdirector.Pause();\n
+\t\t\n
   \]\n
+  \n
 \]\n
 "}
 #4{8 9 "Interact"}
@@ -160,7 +165,7 @@ using System;"}
 :CLSCSSem.1118481{ 56  51 @82 @15 @23 @0 #8{16 0}
 #8{16 1@67 }
 #8{16 0}
-#8{16 4@31 @55 @43 @3 }
+#8{16 4@43 @55 @31 @3 }
 #8{16 0}
 #8{16 0}
 #8{16 0}

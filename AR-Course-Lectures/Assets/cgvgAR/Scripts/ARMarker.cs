@@ -6,6 +6,7 @@
 
 
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.Assertions;
 using System;
 using Vuforia;

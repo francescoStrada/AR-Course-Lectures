@@ -79,12 +79,12 @@ using System;"}
  1.3 0.88 5.6 21  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{117 276 "\[\n
+ 1  1 #4{99 276 "\[\n
   base.OnTrackingLost(sender, args);\n
  \n
-  if(activateOnTrackingFound && videoPlayer != null)\n
+  if(videoPlayer != null)\n
   \[\n
-\tInteract();\n
+\tvideoPlayer.Pause();\n
   \]\n
 \]\n
 "}
@@ -100,12 +100,12 @@ using System;"}
  1.3 0.88 6 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{94 241 "\[\n
+ 1  1 #4{125 241 "\[\n
   base.OnTrackingFound(sender, args);\n
 \n
-  if(activateOnTrackingFound)\n
+  if(activateOnTrackingFound && videoPlayer != null)\n
   \[\n
-\tInteract();\n
+\tvideoPlayer.Play();\n
   \]\n
 \]\n
 "}

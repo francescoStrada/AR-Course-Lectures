@@ -19,10 +19,12 @@ class InteractionManager : MonoBehaviour
     private static InteractionManager instance = null;
 
     protected ARInteractable gazed = null;
-    protected Camera camera = null;
+    protected Camera cam = null;
     protected float timer = 0f;
+    protected AudioSource tapFeedbackAudioSource = null;
 
-    public UnityEngine.UI.Image gazeCursor;
+    public AudioClip tapFeedbackSound = null;
+    public UnityEngine.UI.Image gazeCursor = null;
     public float gazeInterval = 3.0f;
     public bool useTap = true;
     public bool useGaze = false;
@@ -33,14 +35,18 @@ class InteractionManager : MonoBehaviour
       Assert.IsNull(instance);
       instance = this;
     
-      camera = FindObjectOfType<Camera>();
-      Assert.IsNotNull(camera, "Missing camera in scene");
+      cam = FindObjectOfType<Camera>();
+      Assert.IsNotNull(cam, "Missing camera in scene");
     
       if(gazeCursor != null)
       {
     	gazeCursor.fillAmount = 0;
     	gazeCursor.enabled = false;
       }
+    
+      tapFeedbackAudioSource = GetComponentInChildren<AudioSource>();
+      if(tapFeedbackAudioSource != null)
+    	tapFeedbackAudioSource.clip = tapFeedbackSound;
     	
     }
 
@@ -78,7 +84,7 @@ class InteractionManager : MonoBehaviour
     protected ARInteractable CheckInteractable(Vector3 pos)
     {
       RaycastHit hit;
-      Ray ray = camera.ScreenPointToRay(pos);
+      Ray ray = cam.ScreenPointToRay(pos);
       if (Physics.Raycast(ray, out hit)) 
     	return hit.transform.GetComponent<ARInteractable>();
       else
@@ -95,6 +101,9 @@ class InteractionManager : MonoBehaviour
     	{
     		if (Input.GetTouch(0).phase == TouchPhase.Began)
                     {
+    			if(tapFeedbackAudioSource != null)
+    				tapFeedbackAudioSource.Play();
+    		
     			interactable = CheckInteractable(Input.GetTouch(0).position);
     		}
             }
@@ -103,6 +112,9 @@ class InteractionManager : MonoBehaviour
       {
     	if (Input.GetMouseButtonDown(0))
     	{
+    		if(tapFeedbackAudioSource != null)
+    				tapFeedbackAudioSource.Play();
+    
     		interactable = CheckInteractable(Input.mousePosition);
     	}
       }
