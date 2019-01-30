@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 11:SLSThisIcon.286331409{:String.17{8 9 "45173704"}
+:ArrayOb.273{6:Dictionary.4369{16 15:SLSThisIcon.286331409{:String.17{8 9 "45173704"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  52 45 0.4 0 0 #4{30 31 "ARInteractable : MonoBehaviour"}
@@ -60,6 +60,23 @@
 @0 #4{5 6 "false"}
 #4{0 1 ""}
 }
+#6{#4{8 9 "90855032"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{15 16 "OnTrackingFound"}
+ 1.3 0.88 6 21  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{122 241 "\[\n
+  Debug.Log(\"Tracking found \" + ((MonoBehaviour)sender).gameObject.name);\n
+  // add specific behaviour at target found\n
+\]\n
+"}
+#4{15 16 "OnTrackingFound"}
+#4{12 14 "virtual void"}
+#4{28 29 "object sender,EventArgs args"}
+#4{0 1 ""}
+ 0}
 :SLSPublicMethod.286331408{#4{8 9 "45174256"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -97,23 +114,23 @@
 #4{28 29 "object sender,EventArgs args"}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "90855032"}
+:SLSProperty.286331392{#4{8 9 "66767624"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{15 16 "OnTrackingFound"}
- 1.3 0.88 6 21  8 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{6 7 "Marker"}
+ 1.3 0.88 2.4 1  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{122 241 "\[\n
-  Debug.Log(\"Tracking found \" + ((MonoBehaviour)sender).gameObject.name);\n
-  // add specific behaviour at target found\n
-\]\n
-"}
-#4{15 16 "OnTrackingFound"}
-#4{12 14 "virtual void"}
-#4{28 29 "object sender,EventArgs args"}
+ 1  1 #4{31 32 "\[\n
+  get \[\n
+\treturn marker;\n
+  \]\n
+\]"}
+#4{6 7 "Marker"}
+#4{8 9 "ARMarker"}
 #4{0 1 ""}
- 0}
+#4{0 1 ""}
+}
 :JLSGlobalDeclare.286331408{#4{8 9 "45117824"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -124,6 +141,21 @@
  0  0 #4{62 63 "using UnityEngine;\n
 using UnityEngine.Assertions;\n
 using System;"}
+}
+#9{#4{8 9 "66649233"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{4 5 "Drag"}
+ 1.3 0.88 1.6 1  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{4 5 "\[\n
+\]\n
+"}
+#4{4 5 "Drag"}
+#4{12 13 "virtual void"}
+#4{30 31 "Vector3 position,Vector3 delta"}
+#4{0 1 ""}
 }
 :JLSFriendDeclare.286331408{#4{8 9 "45118592"}
 #1{2@0 @0 }
@@ -141,7 +173,10 @@ using System;"}
  1.3 0.879999 3.6 10  17 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{88 89 "\[\n
+ 1  1 #4{119 120 "\[\n
+  if(marker == null)\n
+\treturn;\n
+\n
   marker.TrackingFound -= OnTrackingFound;\n
   marker.TrackingLost -= OnTrackingLost;\n
 \]\n
@@ -151,6 +186,21 @@ using System;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#9{#4{8 9 "67554265"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{6 7 "Rotate"}
+ 1.3 0.879999 2.4 1  16 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{4 5 "\[\n
+\]\n
+"}
+#4{6 7 "Rotate"}
+#4{12 13 "virtual void"}
+#4{11 12 "float delta"}
+#4{0 1 ""}
+}
 #6{#4{8 9 "45208128"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -158,7 +208,7 @@ using System;"}
  1.3 0.88 2 10  7 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{347 390 "\[\n
+ 1  1 #4{378 390 "\[\n
 \n
   Transform element = gameObject.transform;\n
 \n
@@ -176,8 +226,11 @@ using System;"}
 \n
   Assert.IsNotNull(marker);\n
 \n
-  marker.TrackingFound += OnTrackingFound;\n
-  marker.TrackingLost += OnTrackingLost;\n
+  if(marker != null)\n
+  \[\n
+  \tmarker.TrackingFound += OnTrackingFound;\n
+  \tmarker.TrackingLost += OnTrackingLost;\n
+  \]\n
 \]\n
 "}
 #4{5 6 "Awake"}
@@ -185,24 +238,39 @@ using System;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#9{#4{8 9 "67554264"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{6 7 "Resize"}
+ 1.3 0.88 2.4 1  15 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{4 5 "\[\n
+\]\n
+"}
+#4{6 7 "Resize"}
+#4{12 13 "virtual void"}
+#4{11 12 "float delta"}
+#4{0 1 ""}
 }
-:CLSCSSem.1118481{ 56  51 @3 @95 @103 @0 #5{16 0}
+}
+:CLSCSSem.1118481{ 56  51 @3 @107 @127 @0 #5{16 0}
 #5{16 1@29 }
 #5{16 0}
-#5{16 5@123 @111 @71 @83 @17 }
+#5{16 5@159 @135 @83 @59 @17 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
 #1{44@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @44 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@59 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@71 @0 @115 @95 @0 @0 @0 @0 @0 @171 @147 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #5{16 0}
  0}
 :Float.17{0 }
-#13{1 }
-#13{0 }
-#13{1 }
+#14{1 }
+#14{0 }
+#14{1 }
 }

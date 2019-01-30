@@ -38,13 +38,19 @@ class ARInteractable : MonoBehaviour
     
       Assert.IsNotNull(marker);
     
-      marker.TrackingFound += OnTrackingFound;
-      marker.TrackingLost += OnTrackingLost;
+      if(marker != null)
+      {
+      	marker.TrackingFound += OnTrackingFound;
+      	marker.TrackingLost += OnTrackingLost;
+      }
     }
 
 
     protected virtual void OnDestroy()
     {
+      if(marker == null)
+    	return;
+    
       marker.TrackingFound -= OnTrackingFound;
       marker.TrackingLost -= OnTrackingLost;
     }
@@ -78,6 +84,29 @@ class ARInteractable : MonoBehaviour
     	return;
       
       Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
+    }
+
+
+    public virtual void Drag(Vector3 position,Vector3 delta)
+    {
+    }
+
+
+    public ARMarker Marker
+    {
+      get {
+    	return marker;
+      }
+    }
+
+
+    public virtual void Resize(float delta)
+    {
+    }
+
+
+    public virtual void Rotate(float delta)
+    {
     }
 
 
