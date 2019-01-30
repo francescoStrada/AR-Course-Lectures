@@ -566,7 +566,7 @@ using System.IO;"}
  1.3 0.88 5.2 1  13 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{507 508 "\[\n
+ 1  1 #4{793 798 "\[\n
   //prefab.name = \"Children nr.\";\n
 \n
   string cleanName = prefab.name;\n
@@ -580,7 +580,17 @@ using System.IO;"}
   prefab.transform.parent = transform.parent;\n
   prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);\n
 \n
-  prefab.AddComponent<PlaceableObject>();\n
+  PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();\n
+\n
+  ARInteractable[] interactables = prefab.transform.GetComponentsInChildren<ARInteractable>();\n
+  for(int i = 0; i < interactables.Length; i++)\n
+  \[\n
+\tinteractables[i].Initialize();\n
+\n
+\tif(placeable != interactables[i])\n
+\t\tinteractables[i].enabled = false;\n
+  \]\n
+\t\n
 \]\n
 "}
 #4{13 14 "AddNewElement"}

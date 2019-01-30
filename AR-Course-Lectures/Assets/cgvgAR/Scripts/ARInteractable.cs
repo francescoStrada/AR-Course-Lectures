@@ -21,28 +21,7 @@ class ARInteractable : MonoBehaviour
 
     protected void Awake()
     {
-    
-      Transform element = gameObject.transform;
-    
-      while(element != null)
-      {
-    	ARMarker found = element.gameObject.GetComponent<ARMarker>();
-    	if(found == null)
-    		element = element.parent;
-    	else
-    	{
-    		marker = found;
-    		break;
-    	}	
-      }
-    
-      Assert.IsNotNull(marker);
-    
-      if(marker != null)
-      {
-      	marker.TrackingFound += OnTrackingFound;
-      	marker.TrackingLost += OnTrackingLost;
-      }
+      Initialize();
     }
 
 
@@ -96,6 +75,36 @@ class ARInteractable : MonoBehaviour
     {
       get {
     	return marker;
+      }
+    }
+
+
+    public void Initialize()
+    {
+      if(marker != null)
+    	return;
+    
+      Transform element = gameObject.transform;
+    
+      while(element != null)
+      {
+    	ARMarker found = element.gameObject.GetComponent<ARMarker>();
+    	if(found == null)
+    		element = element.parent;
+    	else
+    	{
+    		marker = found;
+    		break;
+    	}	
+      }
+    
+      //When an object is instantiated at runtime it is not directly child of an ARMarker
+      //Assert.IsNotNull(marker);
+    
+      if(marker != null)
+      {
+      	marker.TrackingFound += OnTrackingFound;
+      	marker.TrackingLost += OnTrackingLost;
       }
     }
 

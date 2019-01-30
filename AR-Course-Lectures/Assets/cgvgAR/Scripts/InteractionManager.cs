@@ -102,7 +102,19 @@ const float minPanDistance = 0;
     
       Ray ray = cam.ScreenPointToRay(pos);
       if (Physics.Raycast(ray, out hit)) 
-    	return hit.transform.GetComponent<ARInteractable>();
+      {
+    	Transform t = hit.transform;
+    	while(t != null)
+    	{
+    		ARInteractable found = t.GetComponent<ARInteractable>();
+    		if(found != null && found.enabled)
+    			return found;
+    
+    		t = t.parent;
+    	}
+    
+    	return null;
+      }
       else
     	return null;
     }
@@ -148,14 +160,15 @@ const float minPanDistance = 0;
     		Debug.Log("button up");
     */
     
-    	// RESIZING WITH SROLL WHEEL
+    	// RESIZING WITH SCROLL WHEEL
     	if(Input.mouseScrollDelta.y != 0f)
     	{
     		interactable = CheckInteractable(Input.mousePosition);
     
     		if(interactable != null)
     		{
-    			interactable.Resize(Input.mouseScrollDelta.y);
+    			//interactable.Resize(Input.mouseScrollDelta.y);
+    			interactable.Rotate(Input.mouseScrollDelta.y);
     			interactable = null;
     		}
     
@@ -243,7 +256,7 @@ const float minPanDistance = 0;
     		if(obj1 == null && obj2 == null)
     			return;
     
-    		if(obj1 == null)
+    		if(obj1 == null || obj1 == obj2)
     			interactable = obj2;
     		if(obj2 == null)
     			interactable = obj1;
@@ -261,7 +274,7 @@ const float minPanDistance = 0;
       	if (Mathf.Abs(pinchDistanceDelta) > minPinchDistance) 
      	{
       		pinchDistanceDelta *= pinchRatio;
-    		interactable.Resize(pinchDistanceDelta);
+    		interactable.Resize(pinchDistanceDelta/pinchDistance);
       	} 
     	
      
@@ -275,7 +288,7 @@ const float minPanDistance = 0;
       	if (Mathf.Abs(turnAngleDelta) > minTurnAngle) 
     	{
       		turnAngleDelta *= pinchTurnRatio;
-    		interactable.Rotate(turnAngleDelta);
+    		interactable.Rotate(-turnAngleDelta);
       	} 
       }
     	

@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 15:SLSThisIcon.286331409{:String.17{8 9 "45173704"}
+:ArrayOb.273{6:Dictionary.4369{16 16:SLSThisIcon.286331409{:String.17{8 9 "45173704"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  52 45 0.4 0 0 #4{30 31 "ARInteractable : MonoBehaviour"}
@@ -186,6 +186,46 @@ using System;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#9{#4{8 9 "67547992"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{10 11 "Initialize"}
+ 0.3 0.88 4 1  11 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{496 497 "\[\n
+  if(marker != null)\n
+\treturn;\n
+\n
+  Transform element = gameObject.transform;\n
+\n
+  while(element != null)\n
+  \[\n
+\tARMarker found = element.gameObject.GetComponent<ARMarker>();\n
+\tif(found == null)\n
+\t\telement = element.parent;\n
+\telse\n
+\t\[\n
+\t\tmarker = found;\n
+\t\tbreak;\n
+\t\]\t\n
+  \]\n
+\n
+  //When an object is instantiated at runtime it is not directly child of an ARMarker\n
+  //Assert.IsNotNull(marker);\n
+\n
+  if(marker != null)\n
+  \[\n
+  \tmarker.TrackingFound += OnTrackingFound;\n
+  \tmarker.TrackingLost += OnTrackingLost;\n
+  \]\n
+\]\n
+"}
+#4{10 11 "Initialize"}
+#4{4 5 "void"}
+#4{0 1 ""}
+#4{0 1 ""}
+}
 #9{#4{8 9 "67554265"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -208,29 +248,8 @@ using System;"}
  1.3 0.88 2 10  7 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{378 390 "\[\n
-\n
-  Transform element = gameObject.transform;\n
-\n
-  while(element != null)\n
-  \[\n
-\tARMarker found = element.gameObject.GetComponent<ARMarker>();\n
-\tif(found == null)\n
-\t\telement = element.parent;\n
-\telse\n
-\t\[\n
-\t\tmarker = found;\n
-\t\tbreak;\n
-\t\]\t\n
-  \]\n
-\n
-  Assert.IsNotNull(marker);\n
-\n
-  if(marker != null)\n
-  \[\n
-  \tmarker.TrackingFound += OnTrackingFound;\n
-  \tmarker.TrackingLost += OnTrackingLost;\n
-  \]\n
+ 1  1 #4{20 467 "\[\n
+  Initialize();\n
 \]\n
 "}
 #4{5 6 "Awake"}
@@ -257,14 +276,14 @@ using System;"}
 :CLSCSSem.1118481{ 56  51 @3 @107 @127 @0 #5{16 0}
 #5{16 1@29 }
 #5{16 0}
-#5{16 5@159 @135 @83 @59 @17 }
+#5{16 5@171 @135 @83 @59 @17 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
 #1{44@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @44 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@71 @0 @115 @95 @0 @0 @0 @0 @0 @171 @147 @0 @0 @0 @0 @0 }
+#1{16@71 @0 @115 @95 @0 @147 @0 @0 @0 @183 @159 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #5{16 0}

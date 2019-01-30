@@ -14,23 +14,21 @@
 @0 #4{0 1 ""}
 #4{0 1 ""}
 }
-:SLSProtectMethod.286331408{#4{8 9 "46607664"}
+:SLSProtectMethod.286331408{#4{8 9 "90855032"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Awake"}
- 1.3 0.88 2 10  7 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
+ 1.3 0.88 4 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{142 1409 "\[\n
-   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
-   Assert.IsNotNull(placeHolder);\n
-   placeHolder.SetInventory(inventory);\n
-\n
+ 1  1 #4{70 241 "\[\n
+  Debug.Log(\"Hiding canvas\");\n
+  this.gameObject.SetActive(false);\n
 \]\n
 "}
-#4{5 6 "Awake"}
-#4{4 5 "void"}
-#4{0 1 ""}
+#4{10 16 "HideCanvas"}
+#4{4 14 "void"}
+#4{42 43 "object sender = null,EventArgs args = null"}
 #4{0 1 ""}
  0}
 #6{#4{8 9 "90855033"}
@@ -51,21 +49,23 @@
 #4{42 43 "object sender = null,EventArgs args = null"}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "90855032"}
+#6{#4{8 9 "46607664"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
- 1.3 0.88 4 21  8 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{5 6 "Awake"}
+ 1.3 0.88 2 10  7 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{70 241 "\[\n
-  Debug.Log(\"Hiding canvas\");\n
-  this.gameObject.SetActive(false);\n
+ 1  1 #4{142 1409 "\[\n
+   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
+   Assert.IsNotNull(placeHolder);\n
+   placeHolder.SetInventory(inventory);\n
+\n
 \]\n
 "}
-#4{10 16 "HideCanvas"}
-#4{4 14 "void"}
-#4{42 43 "object sender = null,EventArgs args = null"}
+#4{5 6 "Awake"}
+#4{4 5 "void"}
+#4{0 1 ""}
 #4{0 1 ""}
  0}
 #6{#4{8 9 "46607665"}
@@ -179,7 +179,7 @@
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{14 15 "CreateIconList"}
- 1.3 0.88 5.6 33  30 #4{0 1 ""}
+ 1.3 0.879999 5.6 33  30 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
  1  1 #4{562 563 "\[\n
@@ -253,7 +253,7 @@
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{13 14 "ClickedButton"}
- 1.3 0.880004 5.2 11  24 #4{0 1 ""}
+ 1.3 0.879999 5.2 11  24 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
  1  1 #4{29 30 "\[\n
@@ -297,7 +297,7 @@ using UnityEngine.UI;"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{10 11 "SaveDesign"}
- 1.3 0.880004 4 11  26 #4{0 1 ""}
+ 1.3 0.879999 4 11  26 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
  1  1 #4{32 33 "\[\n
@@ -329,7 +329,7 @@ using UnityEngine.UI;"}
 :CLSCSSem.1118481{ 56  51 @90 @166 @116 @0 #5{16 0}
 #5{16 3@3 @124 @139 }
 #5{16 0}
-#5{16 10@18 @66 @42 @30 @104 @78 @154 @189 @54 @201 }
+#5{16 10@42 @66 @18 @30 @104 @78 @154 @189 @54 @201 }
 #5{16 0}
 #5{16 0}
 #5{16 0}

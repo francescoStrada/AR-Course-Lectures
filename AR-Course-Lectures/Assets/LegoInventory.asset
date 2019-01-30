@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf225371a3e13c549afe1a65d0da831b, type: 3}
+  m_Name: LegoInventory
+  m_EditorClassIdentifier: 
+  items:
+  - displayname: Default
+    icon: {fileID: 21300000, guid: 2deb3ee979616eb419546cae5935329f, type: 3}
+    prefab: {fileID: 1517895401825554, guid: 6086a649a68171d4988f2b8174f317a4, type: 2}
+  - displayname: Van Gogh - Starry Night
+    icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
+    prefab: {fileID: 1744233995005926, guid: 2a867d7f23403e74980b84ca4c44e209, type: 2}

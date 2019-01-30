@@ -5,9 +5,17 @@
  1.3 0.88 2.4 1  15 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{90 93 "\[\n
+ 1  1 #4{377 378 "\[\n
   Debug.Log(\"Delta = \" + delta);\n
-  transform.localScale *= 1f + SCALE_FACTOR * delta;\n
+\n
+  if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)\n
+  \[\n
+  \ttransform.localScale *= 1f + delta;\n
+  \]\n
+  else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)\n
+  \[\n
+  \ttransform.localScale *= 1f + SCALE_FACTOR * delta;\n
+  \]\n
 \]\n
 "}
 #4{6 7 "Resize"}
@@ -29,6 +37,31 @@
 #6{16 0}
 #4{0 2 ""}
 @0 #4{0 1 ""}
+}
+:JLSFriendDeclare.286331408{#4{8 9 "46574592"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{17 18 "Class Declaration"}
+ 0.299999 0.88 6.8 33  5 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 0  0 #4{32 33 "const float SCALE_FACTOR = 0.1f;"}
+}
+:SLSProtectMember.286331409{#4{8 9 "51845240"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{3 4 "cam"}
+ 3.4 1.88 1.2 30  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{3 7 "cam"}
+#4{6 7 "Camera"}
+#4{0 1 ""}
+#6{16 0}
+#6{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "null"}
+#4{0 1 ""}
 }
 :SLSProtectMethod.286331408{#4{8 9 "52325368"}
 #1{2@0 @0 }
@@ -61,32 +94,7 @@
 #4{11 12 "Vector3 pos"}
 #4{0 1 ""}
  0}
-:SLSProtectMember.286331409{#4{8 9 "51845240"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{3 4 "cam"}
- 3.4 1.88 1.2 30  40 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{3 7 "cam"}
-#4{6 7 "Camera"}
-#4{0 1 ""}
-#6{16 0}
-#6{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "null"}
-#4{0 1 ""}
-}
-:JLSFriendDeclare.286331408{#4{8 9 "46574592"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{17 18 "Class Declaration"}
- 0.299999 0.88 6.8 33  5 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 0  0 #4{32 33 "const float SCALE_FACTOR = 0.1f;"}
-}
-#7{#4{8 9 "67042160"}
+#9{#4{8 9 "67042160"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Start"}
@@ -103,7 +111,7 @@
 #4{0 1 ""}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "46607664"}
+#9{#4{8 9 "46607664"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Awake"}
@@ -242,9 +250,19 @@ using Vuforia;"}
  1.3 0.879999 2.4 1  16 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{90 93 "\[\n
+ 1  1 #4{259 260 "\[\n
   Debug.Log(\"Delta = \" + delta);\n
+  \n
+  transform.Rotate(Vector3.up * delta);\n
+\n
+/*\n
   transform.localScale *= 1f + SCALE_FACTOR * delta;\n
+\n
+\n
+  Vector3 rotationDeg = Vector3.zero;\n
+  rotationDeg.z = - delta;\n
+  desiredRotation *= Quaternion.Euler(rotationDeg);\n
+*/\n
 \]\n
 "}
 #4{6 7 "Rotate"}
@@ -253,10 +271,10 @@ using Vuforia;"}
 #4{0 1 ""}
 }
 }
-:CLSCSSem.1118481{ 56  51 @15 @112 @56 @0 #6{16 0}
-#6{16 2@41 @120 }
+:CLSCSSem.1118481{ 56  51 @15 @112 @29 @0 #6{16 0}
+#6{16 2@37 @120 }
 #6{16 0}
-#6{16 3@29 @76 @64 }
+#6{16 3@52 @76 @64 }
 #6{16 0}
 #6{16 0}
 #6{16 0}

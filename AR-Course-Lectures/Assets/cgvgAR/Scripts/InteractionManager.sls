@@ -45,15 +45,15 @@
 @0 #4{5 6 "false"}
 #4{0 1 ""}
 }
-#7{#4{8 9 "44567000"}
+#7{#4{8 9 "51845240"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{5 6 "gazed"}
- 3 1.88 2 21  40 #4{0 1 ""}
+@0  8 2 0.4 0 0 #4{3 4 "cam"}
+ 3.4 1.88 1.2 30  40 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{5 6 "gazed"}
-#4{14 15 "ARInteractable"}
+ 1  1 #4{3 7 "cam"}
+#4{6 7 "Camera"}
 #4{0 1 ""}
 #5{16 0}
 #5{16 0}
@@ -77,15 +77,15 @@
 @0 #4{0 1 ""}
 #4{0 1 ""}
 }
-#7{#4{8 9 "51845240"}
+#7{#4{8 9 "44567000"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{3 4 "cam"}
- 3.4 1.88 1.2 30  40 #4{0 1 ""}
+@0  8 2 0.4 0 0 #4{5 6 "gazed"}
+ 3 1.88 2 21  40 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{3 7 "cam"}
-#4{6 7 "Camera"}
+ 1  1 #4{5 6 "gazed"}
+#4{14 15 "ARInteractable"}
 #4{0 1 ""}
 #5{16 0}
 #5{16 0}
@@ -100,13 +100,25 @@
  1.3 0.88 6.8 30  11 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{200 331 "\[\n
+ 1  1 #4{353 354 "\[\n
   RaycastHit hit;\n
   lastTapPosition = pos;\n
 \n
   Ray ray = cam.ScreenPointToRay(pos);\n
   if (Physics.Raycast(ray, out hit)) \n
-\treturn hit.transform.GetComponent<ARInteractable>();\n
+  \[\n
+\tTransform t = hit.transform;\n
+\twhile(t != null)\n
+\t\[\n
+\t\tARInteractable found = t.GetComponent<ARInteractable>();\n
+\t\tif(found != null && found.enabled)\n
+\t\t\treturn found;\n
+\n
+\t\tt = t.parent;\n
+\t\]\n
+\n
+\treturn null;\n
+  \]\n
   else\n
 \treturn null;\n
 \]\n
@@ -116,6 +128,22 @@
 #4{11 12 "Vector3 pos"}
 #4{0 1 ""}
  0}
+#7{#4{8 9 "51851912"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{5 6 "timer"}
+ 3 1.88 2 39  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{5 6 "timer"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{2 3 "0f"}
+#4{0 1 ""}
+}
 #8{#4{8 9 "52332473"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -152,22 +180,6 @@
 #4{0 1 ""}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "51851912"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{5 6 "timer"}
- 3 1.88 2 39  40 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{5 6 "timer"}
-#4{5 6 "float"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{2 3 "0f"}
-#4{0 1 ""}
-}
 #8{#4{8 9 "52332472"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -175,7 +187,7 @@
  1.3 0.88 3.2 20  11 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{2111 2112 "\[\n
+ 1  1 #4{2164 2165 "\[\n
   if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)\n
   \[\n
 \tif (Input.touchCount > 0 && Input.touchCount < 2)\n
@@ -214,14 +226,15 @@
 \t\tDebug.Log(\"button up\");\n
 */\n
 \n
-\t// RESIZING WITH SROLL WHEEL\n
+\t// RESIZING WITH SCROLL WHEEL\n
 \tif(Input.mouseScrollDelta.y != 0f)\n
 \t\[\n
 \t\tinteractable = CheckInteractable(Input.mousePosition);\n
 \n
 \t\tif(interactable != null)\n
 \t\t\[\n
-\t\t\tinteractable.Resize(Input.mouseScrollDelta.y);\n
+\t\t\t//interactable.Resize(Input.mouseScrollDelta.y);\n
+\t\t\tinteractable.Rotate(Input.mouseScrollDelta.y);\n
 \t\t\tinteractable = null;\n
 \t\t\]\n
 \n
@@ -305,7 +318,7 @@ using UnityEngine.UI;"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Angle"}
- 1.3 0.880004 2 30  13 #4{0 1 ""}
+ 1.3 0.88 2 30  13 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
  1  1 #4{232 233 "\[\n
@@ -393,22 +406,6 @@ using UnityEngine.UI;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "45199728"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{6 7 "useTap"}
- 1.3 1.88 2.4 1  38 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{6 7 "useTap"}
-#4{4 5 "bool"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "true"}
-#4{0 1 ""}
-}
 #7{#4{8 9 "48254760"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -423,6 +420,22 @@ using UnityEngine.UI;"}
 #5{16 0}
 #4{1 2 "S"}
 @0 #4{4 5 "null"}
+#4{0 1 ""}
+}
+#6{#4{8 9 "45199728"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{6 7 "useTap"}
+ 1.3 1.88 2.4 1  38 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{6 7 "useTap"}
+#4{4 5 "bool"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "true"}
 #4{0 1 ""}
 }
 :JLSFriendDeclare.286331408{#4{8 9 "45309552"}
@@ -440,6 +453,38 @@ const float minPinchDistance = 0;\n
  \n
 const float panRatio = 1;\n
 const float minPanDistance = 0;"}
+}
+#6{#4{8 9 "51899520"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{10 11 "gazeCursor"}
+ 1.3 1.88 4 1  34 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{10 11 "gazeCursor"}
+#4{20 21 "UnityEngine.UI.Image"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "null"}
+#4{0 1 ""}
+}
+#6{#4{8 9 "44919952"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{12 13 "gazeInterval"}
+ 1.3 1.88 4.8 1  36 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{12 13 "gazeInterval"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "3.0f"}
+#4{0 1 ""}
 }
 #8{#4{8 9 "16956944"}
 #1{2@0 @0 }
@@ -465,38 +510,6 @@ const float minPanDistance = 0;"}
 #4{0 11 ""}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "44919952"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{12 13 "gazeInterval"}
- 1.3 1.88 4.8 1  36 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{12 13 "gazeInterval"}
-#4{5 6 "float"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "3.0f"}
-#4{0 1 ""}
-}
-#6{#4{8 9 "51899520"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{10 11 "gazeCursor"}
- 1.3 1.88 4 1  34 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{10 11 "gazeCursor"}
-#4{20 21 "UnityEngine.UI.Image"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "null"}
-#4{0 1 ""}
-}
 #6{#4{8 9 "44854921"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -533,10 +546,10 @@ const float minPanDistance = 0;"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{15 16 "CheckMultitouch"}
- 1.3 0.880004 6 20  13 #4{0 1 ""}
+ 1.3 0.88 6 20  13 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{1624 1625 "\[\n
+ 1  1 #4{1655 1656 "\[\n
   Touch touch1 = Input.touches[0];\n
   Touch touch2 = Input.touches[1];\n
  \n
@@ -551,7 +564,7 @@ const float minPanDistance = 0;"}
 \t\tif(obj1 == null && obj2 == null)\n
 \t\t\treturn;\n
 \n
-\t\tif(obj1 == null)\n
+\t\tif(obj1 == null || obj1 == obj2)\n
 \t\t\tinteractable = obj2;\n
 \t\tif(obj2 == null)\n
 \t\t\tinteractable = obj1;\n
@@ -569,7 +582,7 @@ const float minPanDistance = 0;"}
   \tif (Mathf.Abs(pinchDistanceDelta) > minPinchDistance) \n
  \t\[\n
   \t\tpinchDistanceDelta *= pinchRatio;\n
-\t\tinteractable.Resize(pinchDistanceDelta);\n
+\t\tinteractable.Resize(pinchDistanceDelta/pinchDistance);\n
   \t\] \n
 \t\n
  \n
@@ -583,7 +596,7 @@ const float minPanDistance = 0;"}
   \tif (Mathf.Abs(turnAngleDelta) > minTurnAngle) \n
 \t\[\n
   \t\tturnAngleDelta *= pinchTurnRatio;\n
-\t\tinteractable.Rotate(turnAngleDelta);\n
+\t\tinteractable.Rotate(-turnAngleDelta);\n
   \t\] \n
   \]\n
 \t\n
@@ -596,15 +609,15 @@ const float minPanDistance = 0;"}
  0}
 }
 :CLSCSSem.1118481{ 56  51 @3 @155 @244 @0 #5{16 1@309 }
-#5{16 7@47 @77 @116 @229 @62 @32 @175 }
+#5{16 7@77 @47 @104 @214 @62 @32 @175 }
 #5{16 0}
-#5{16 9@202 @190 @143 @252 @92 @131 @104 @324 @163 }
+#5{16 9@202 @190 @143 @282 @92 @131 @119 @324 @163 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @17 @0 @279 @0 @264 @0 @214 @0 @294 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @17 @0 @252 @0 @267 @0 @229 @0 @294 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}

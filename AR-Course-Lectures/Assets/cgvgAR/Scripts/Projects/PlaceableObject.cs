@@ -131,14 +131,32 @@ const float SCALE_FACTOR = 0.1f;
     public override void Resize(float delta)
     {
       Debug.Log("Delta = " + delta);
-      transform.localScale *= 1f + SCALE_FACTOR * delta;
+    
+      if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+      {
+      	transform.localScale *= 1f + delta;
+      }
+      else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
+      {
+      	transform.localScale *= 1f + SCALE_FACTOR * delta;
+      }
     }
 
 
     public override void Rotate(float delta)
     {
       Debug.Log("Delta = " + delta);
+      
+      transform.Rotate(Vector3.up * delta);
+    
+    /*
       transform.localScale *= 1f + SCALE_FACTOR * delta;
+    
+    
+      Vector3 rotationDeg = Vector3.zero;
+      rotationDeg.z = - delta;
+      desiredRotation *= Quaternion.Euler(rotationDeg);
+    */
     }
 
 

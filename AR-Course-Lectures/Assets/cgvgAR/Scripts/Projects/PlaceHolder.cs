@@ -247,7 +247,17 @@ static string DESIGN_FILENAME = "DesignData.dat";
       prefab.transform.parent = transform.parent;
       prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
     
-      prefab.AddComponent<PlaceableObject>();
+      PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();
+    
+      ARInteractable[] interactables = prefab.transform.GetComponentsInChildren<ARInteractable>();
+      for(int i = 0; i < interactables.Length; i++)
+      {
+    	interactables[i].Initialize();
+    
+    	if(placeable != interactables[i])
+    		interactables[i].enabled = false;
+      }
+    	
     }
 
 
