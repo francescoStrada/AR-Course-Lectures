@@ -77,7 +77,7 @@ using Vuforia;"}
 @0  52 45 0.4 0 0 #4{39 40 "ARMarker : DefaultTrackableEventHandler"}
  15.8686 2.2 24.96 4  0 #4{0 1 ""}
 #4{0 1 ""}
-@0  5.12807 4.04449 0
+@0  1.72316 4.04449 0
  0  0 #4{8 9 "ARMarker"}
 #4{28 29 "DefaultTrackableEventHandler"}
 #4{0 13 ""}

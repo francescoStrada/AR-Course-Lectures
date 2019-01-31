@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{32 17:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
+:ArrayOb.273{6:Dictionary.4369{32 18:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{11 12 "placeHolder"}
@@ -14,42 +14,7 @@
 @0 #4{0 1 ""}
 #4{0 1 ""}
 }
-:SLSProtectMethod.286331408{#4{8 9 "90855032"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
- 1.3 0.88 4 21  8 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{70 241 "\[\n
-  Debug.Log(\"Hiding canvas\");\n
-  this.gameObject.SetActive(false);\n
-\]\n
-"}
-#4{10 16 "HideCanvas"}
-#4{4 14 "void"}
-#4{42 43 "object sender = null,EventArgs args = null"}
-#4{0 1 ""}
- 0}
-#6{#4{8 9 "90855033"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{10 11 "ShowCanvas"}
- 1.3 0.88 4 21  9 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{72 276 "\[\n
-  Debug.Log(\"Showing canvas\");\n
-  this.gameObject.SetActive(true);\n
- \n
-\]\n
-"}
-#4{10 16 "ShowCanvas"}
-#4{4 14 "void"}
-#4{42 43 "object sender = null,EventArgs args = null"}
-#4{0 1 ""}
- 0}
-#6{#4{8 9 "46607664"}
+:SLSProtectMethod.286331408{#4{8 9 "46607664"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Awake"}
@@ -68,6 +33,44 @@
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#6{#4{8 9 "90855033"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{10 11 "ShowCanvas"}
+ 1.3 0.88 4 21  9 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{106 276 "\[\n
+  if(!designModeActive)\n
+\treturn;\n
+\n
+  Debug.Log(\"Showing canvas\");\n
+  this.gameObject.SetActive(true);\n
+ \n
+\]\n
+"}
+#4{10 16 "ShowCanvas"}
+#4{4 14 "void"}
+#4{42 43 "object sender = null,EventArgs args = null"}
+#4{0 1 ""}
+ 0}
+#6{#4{8 9 "90855032"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
+ 1.3 0.88 4 21  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{70 241 "\[\n
+  Debug.Log(\"Hiding canvas\");\n
+  this.gameObject.SetActive(false);\n
+\]\n
+"}
+#4{10 16 "HideCanvas"}
+#4{4 14 "void"}
+#4{42 43 "object sender = null,EventArgs args = null"}
+#4{0 1 ""}
+ 0}
 #6{#4{8 9 "46607665"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -75,12 +78,20 @@
  1.3 0.88 2 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{1212 1409 "\[\n
+ 1  1 #4{1458 1459 "\[\n
 \n
    ARMarker marker = placeHolder.Marker;\n
 \n
    marker.TrackingLost += HideCanvas;\n
    marker.TrackingFound += ShowCanvas;\n
+\n
+\n
+  ApplicationManager.Instance.StartedDesignMode += ((sender, args) => designModeActive = true );\n
+  ApplicationManager.Instance.StoppedDesignMode += ((sender, args) => \n
+\t\t\t\t\t\t\t\[\n
+\t\t\t\t\t\t\t\tdesignModeActive = false;\n
+\t\t\t\t\t\t\t\tHideCanvas();\n
+\t\t\t\t\t\t\t\]);\n
 \n
 \n
 /*\n
@@ -276,6 +287,22 @@ using UnityEngine.Assertions;\n
 using System;\n
 using UnityEngine.UI;"}
 }
+#3{#4{8 9 "46718984"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{16 17 "designModeActive"}
+ 0.799999 1.88 6.4 37  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{16 18 "designModeActive"}
+#4{4 5 "bool"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{5 6 "false"}
+#4{0 1 ""}
+}
 :SLSPublicMember.286331409{#4{8 9 "46523992"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -326,15 +353,15 @@ using UnityEngine.UI;"}
  0}
 }
 :CLSCSSem.1118481{ 56  51 @90 @166 @116 @0 #5{16 0}
-#5{16 3@3 @124 @139 }
+#5{16 4@3 @124 @139 @174 }
 #5{16 0}
-#5{16 10@42 @66 @18 @30 @104 @78 @154 @189 @54 @201 }
+#5{16 10@18 @66 @42 @30 @104 @78 @154 @204 @54 @216 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @174 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @189 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}

@@ -20,6 +20,7 @@ class DesignCanvas : MonoBehaviour
     protected PlaceableInventory inventory;
     [SerializeField]
     protected GameObject buttonPrefab;
+    protected bool designModeActive = false;
 
     public GameObject plane = null;
 
@@ -48,6 +49,9 @@ class DesignCanvas : MonoBehaviour
 
     protected void ShowCanvas(object sender = null,EventArgs args = null)
     {
+      if(!designModeActive)
+    	return;
+    
       Debug.Log("Showing canvas");
       this.gameObject.SetActive(true);
      
@@ -102,6 +106,14 @@ class DesignCanvas : MonoBehaviour
     
        marker.TrackingLost += HideCanvas;
        marker.TrackingFound += ShowCanvas;
+    
+    
+      ApplicationManager.Instance.StartedDesignMode += ((sender, args) => designModeActive = true );
+      ApplicationManager.Instance.StoppedDesignMode += ((sender, args) => 
+    							{
+    								designModeActive = false;
+    								HideCanvas();
+    							});
     
     
     /*

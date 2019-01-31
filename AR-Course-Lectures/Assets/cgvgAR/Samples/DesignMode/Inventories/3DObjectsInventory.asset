@@ -17,4 +17,4 @@ MonoBehaviour:
     prefab: {fileID: 1817247772007986, guid: 7a2352d7daa066048951020fa4954c57, type: 2}
   - displayname: Rotating Cube
     icon: {fileID: 21300000, guid: 65fb140375876f34d9cb959f9bc0e43b, type: 3}
-    prefab: {fileID: 1664877663320214, guid: cc70a9e1a216b69478688a3e691b1fec, type: 2}
+    prefab: {fileID: 1909145654003532, guid: cc70a9e1a216b69478688a3e691b1fec, type: 2}

@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 11:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
+:ArrayOb.273{6:Dictionary.4369{16 12:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Start"}
@@ -21,11 +21,13 @@
 @0  52 45 0.4 0 0 #4{34 35 "ApplicationManager : MonoBehaviour"}
  16.7829 2.2 21.76 4  0 #4{0 1 ""}
 #4{0 1 ""}
-@0  38 5 1
+@0  1.94049 3.74855 0
  0  0 #4{18 19 "ApplicationManager"}
 #4{13 14 "MonoBehaviour"}
 #4{0 13 ""}
-:OrderedCltn.4369{16 0}
+:OrderedCltn.4369{16 2#4{55 56 "public event EventHandler<EventArgs> StartedDesignMode;"}
+#4{55 56 "public event EventHandler<EventArgs> StoppedDesignMode;"}
+}
 #6{16 0}
 #4{0 2 ""}
 @0 #4{0 1 ""}
@@ -72,6 +74,21 @@ using System;\n
 using UnityEngine.UI;\n
 using Vuforia;"}
 }
+:SLSProperty.286331392{#4{8 9 "67994376"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{8 9 "Instance"}
+ 1.3 0.88 3.2 1  7 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{27 28 "\[\n
+  get\[return instance;\]\n
+\]"}
+#4{8 9 "Instance"}
+#4{25 26 "static ApplicationManager"}
+#4{0 1 ""}
+#4{0 1 ""}
+}
 #3{#4{8 9 "46630344"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -79,7 +96,7 @@ using Vuforia;"}
  1.3 0.88 5.2 10  15 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{628 629 "\[\n
+ 1  1 #4{843 844 "\[\n
   PlaceHolder[] holders = FindObjectsOfType<PlaceHolder>();\n
 \n
   for(int i=0; i < holders.Length; i++)\n
@@ -103,6 +120,12 @@ using Vuforia;"}
 \n
   if(instance.modeText != null)\n
 \tinstance.modeText.text = value ? \"Stop Design\" : \"Start Design\";\n
+\n
+  if( value && instance.StartedDesignMode != null)\n
+\tinstance.StartedDesignMode(instance, EventArgs.Empty);\n
+\n
+  if(!value && instance.StoppedDesignMode != null)\n
+\tinstance.StoppedDesignMode(instance,EventArgs.Empty);\n
 \]\n
 "}
 #4{13 14 "SetDesignMode"}
@@ -125,6 +148,22 @@ using Vuforia;"}
 #4{7 8 "SetMode"}
 #4{11 12 "static void"}
 #4{9 10 "Mode mode"}
+#4{0 1 ""}
+}
+#7{#4{8 9 "67253776"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{4 5 "mode"}
+ 3.2 1.88 1.6 19  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{4 5 "mode"}
+#4{4 5 "Mode"}
+#4{0 1 ""}
+#6{16 0}
+#6{16 0}
+#4{1 2 "S"}
+@0 #4{9 10 "Mode.None"}
 #4{0 1 ""}
 }
 #3{#4{8 9 "46629952"}
@@ -157,22 +196,6 @@ using Vuforia;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "67253776"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{4 5 "mode"}
- 3.2 1.88 1.6 19  40 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{4 5 "mode"}
-#4{4 5 "Mode"}
-#4{0 1 ""}
-#6{16 0}
-#6{16 0}
-#4{1 2 "S"}
-@0 #4{9 10 "Mode.None"}
-#4{0 1 ""}
-}
 #7{#4{8 9 "46718544"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -209,23 +232,23 @@ using Vuforia;"}
 #4{0 1 ""}
  0}
 }
-:CLSCSSem.1118481{ 56  51 @15 @52 @44 @0 #6{16 0}
-#6{16 3@29 @96 @111 }
+:CLSCSSem.1118481{ 56  51 @15 @54 @46 @0 #6{16 0}
+#6{16 3@31 @98 @125 }
 #6{16 0}
-#6{16 4@3 @84 @60 @126 }
+#6{16 4@3 @113 @74 @140 }
 #6{16 0}
 #6{16 0}
-#6{16 0}
-#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #6{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@72 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#6{16 0}
+#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@86 @62 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #6{16 0}
  0}
 :Float.17{0 }
-#12{1 }
-#12{0 }
-#12{1 }
+#13{1 }
+#13{0 }
+#13{1 }
 }

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NextId: 0
   m_Tracks:
-  - {fileID: 114348625716937664}
+  - {fileID: 114896131875177060}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
   m_DurationMode: 0
   m_Version: 0
---- !u!74 &74708310271202402
+--- !u!74 &74388862866275116
 AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,7 +280,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 1
   m_Events: []
---- !u!114 &114348625716937664
+--- !u!114 &114896131875177060
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,14 +294,14 @@ MonoBehaviour:
   m_Locked: 0
   m_Muted: 0
   m_CustomPlayableFullTypename: 
-  m_AnimClip: {fileID: 74708310271202402}
+  m_AnimClip: {fileID: 74388862866275116}
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips: []
   m_Version: 1
   m_OpenClipPreExtrapolation: 1
   m_OpenClipPostExtrapolation: 1
-  m_OpenClipOffsetPosition: {x: 3.4920006, y: 0.037, z: 0}
+  m_OpenClipOffsetPosition: {x: 0, y: 0.151, z: 0}
   m_OpenClipOffsetEulerAngles: {x: -0, y: 0, z: 0}
   m_OpenClipTimeOffset: 0
   m_MatchTargetFields: 63

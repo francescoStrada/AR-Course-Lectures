@@ -23,6 +23,8 @@ public enum Mode {
 };
 // class declaration end
 
+    public event EventHandler<EventArgs> StartedDesignMode;
+    public event EventHandler<EventArgs> StoppedDesignMode;
 
     protected static ApplicationManager instance;
     protected Mode mode = Mode.None;
@@ -81,6 +83,12 @@ public enum Mode {
     
       if(instance.modeText != null)
     	instance.modeText.text = value ? "Stop Design" : "Start Design";
+    
+      if( value && instance.StartedDesignMode != null)
+    	instance.StartedDesignMode(instance, EventArgs.Empty);
+    
+      if(!value && instance.StoppedDesignMode != null)
+    	instance.StoppedDesignMode(instance,EventArgs.Empty);
     }
 
 
@@ -99,6 +107,12 @@ public enum Mode {
     {
       SetDesignMode(mode == Mode.Design);
       instance.mode = mode;
+    }
+
+
+    public static ApplicationManager Instance
+    {
+      get{return instance;}
     }
 
 
