@@ -104,6 +104,7 @@ class DesignCanvas : MonoBehaviour
        marker.TrackingFound += ShowCanvas;
     
     
+    /*
        InputField[] fields = transform.GetComponentsInChildren<InputField>();
     
     
@@ -122,13 +123,11 @@ class DesignCanvas : MonoBehaviour
     		fields[i].onValueChanged.AddListener((x) => plane.transform.localScale = new Vector3(plane.transform.localScale.x, plane.transform.localScale.y, float.Parse(x))); 
     	}
        }
-    
+    */
        Button[] buttons = transform.GetComponentsInChildren<Button>();
     
        for(int i=0; i < buttons.Length; i++)
        {
-    	if(buttons[i].name == "Add_GO_Button")
-    		buttons[i].onClick.AddListener(() => AddNewElement()); 
     	if(buttons[i].name == "Save_Button")
     		buttons[i].onClick.AddListener(() => SaveDesign()); 
     	if(buttons[i].name == "Clear_Button")

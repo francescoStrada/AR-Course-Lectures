@@ -75,7 +75,7 @@
  1.3 0.88 2 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{1305 1409 "\[\n
+ 1  1 #4{1212 1409 "\[\n
 \n
    ARMarker marker = placeHolder.Marker;\n
 \n
@@ -83,6 +83,7 @@
    marker.TrackingFound += ShowCanvas;\n
 \n
 \n
+/*\n
    InputField[] fields = transform.GetComponentsInChildren<InputField>();\n
 \n
 \n
@@ -101,13 +102,11 @@
 \t\tfields[i].onValueChanged.AddListener((x) => plane.transform.localScale = new Vector3(plane.transform.localScale.x, plane.transform.localScale.y, float.Parse(x))); \n
 \t\]\n
    \]\n
-\n
+*/\n
    Button[] buttons = transform.GetComponentsInChildren<Button>();\n
 \n
    for(int i=0; i < buttons.Length; i++)\n
    \[\n
-\tif(buttons[i].name == \"Add_GO_Button\")\n
-\t\tbuttons[i].onClick.AddListener(() => AddNewElement()); \n
 \tif(buttons[i].name == \"Save_Button\")\n
 \t\tbuttons[i].onClick.AddListener(() => SaveDesign()); \n
 \tif(buttons[i].name == \"Clear_Button\")\n

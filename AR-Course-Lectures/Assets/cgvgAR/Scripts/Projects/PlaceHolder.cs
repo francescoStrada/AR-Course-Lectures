@@ -30,7 +30,6 @@ static string DESIGN_FILENAME = "DesignData.dat";
 
     protected Camera cam = null;
     protected MeshRenderer renderer;
-    [SerializeField]
     protected PlaceableInventory inventory;
 
     public float DELTA = 0.01f;
@@ -224,7 +223,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
       plane.transform.position = transform.position + DELTA_LIFT * transform.up;
       plane.transform.rotation = transform.rotation;
       plane.transform.parent = transform.parent;
-      plane.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+      //plane.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
     
       plane.AddComponent<PlaceableObject>();
     
@@ -245,7 +244,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
       prefab.transform.position = transform.position + DELTA_LIFT * transform.up;
       prefab.transform.rotation = transform.rotation;
       prefab.transform.parent = transform.parent;
-      prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+      //prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
     
       PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();
     

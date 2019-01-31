@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 9:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
+:ArrayOb.273{6:Dictionary.4369{16 11:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Start"}
@@ -79,7 +79,7 @@ using Vuforia;"}
  1.3 0.88 5.2 10  15 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{529 530 "\[\n
+ 1  1 #4{628 629 "\[\n
   PlaceHolder[] holders = FindObjectsOfType<PlaceHolder>();\n
 \n
   for(int i=0; i < holders.Length; i++)\n
@@ -100,6 +100,9 @@ using Vuforia;"}
 \t\t\tobj.enabled = value;\n
 \t\]\n
   \]\n
+\n
+  if(instance.modeText != null)\n
+\tinstance.modeText.text = value ? \"Stop Design\" : \"Start Design\";\n
 \]\n
 "}
 #4{13 14 "SetDesignMode"}
@@ -131,8 +134,22 @@ using Vuforia;"}
  1.3 0.88 2 10  6 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{23 24 "\[\n
+ 1  1 #4{310 320 "\[\n
   instance = this;\n
+\n
+  Button[] buttons = transform.GetComponentsInChildren<Button>();\n
+\n
+   for(int i=0; i < buttons.Length; i++)\n
+   \[\n
+\tif(buttons[i].name == \"DesignMode_Button\")\n
+\t\[\n
+\t\tbuttons[i].onClick.AddListener(ToggleDesignMode); \n
+\t\tmodeText = buttons[i].GetComponentInChildren<Text>();\n
+\t\t\t\n
+\t\]\n
+\t\t\n
+\t\n
+   \]\n
 \]\n
 "}
 #4{5 6 "Awake"}
@@ -156,11 +173,46 @@ using Vuforia;"}
 @0 #4{9 10 "Mode.None"}
 #4{0 1 ""}
 }
+#7{#4{8 9 "46718544"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{8 9 "modeText"}
+ 2.4 1.88 3.2 28  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{8 9 "modeText"}
+#4{4 5 "Text"}
+#4{0 1 ""}
+#6{16 0}
+#6{16 0}
+#4{1 2 "S"}
+@0 #4{0 1 ""}
+#4{0 1 ""}
+}
+#3{#4{8 9 "67202256"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{16 17 "ToggleDesignMode"}
+ 1.3 0.88 6.4 19  9 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{109 110 "\[\n
+  if(mode == Mode.Design)\n
+\tSetMode(Mode.Runtime);\n
+  else if(mode == Mode.Runtime)\n
+\tSetMode(Mode.Design);\n
+\]\n
+"}
+#4{16 17 "ToggleDesignMode"}
+#4{4 5 "void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 }
 :CLSCSSem.1118481{ 56  51 @15 @52 @44 @0 #6{16 0}
-#6{16 2@29 @96 }
+#6{16 3@29 @96 @111 }
 #6{16 0}
-#6{16 3@3 @84 @60 }
+#6{16 4@3 @84 @60 @126 }
 #6{16 0}
 #6{16 0}
 #6{16 0}

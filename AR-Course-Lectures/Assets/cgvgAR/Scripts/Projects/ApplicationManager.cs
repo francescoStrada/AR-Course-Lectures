@@ -26,6 +26,7 @@ public enum Mode {
 
     protected static ApplicationManager instance;
     protected Mode mode = Mode.None;
+    protected Text modeText;
 
 
     protected void Start()
@@ -38,6 +39,20 @@ public enum Mode {
     protected void Awake()
     {
       instance = this;
+    
+      Button[] buttons = transform.GetComponentsInChildren<Button>();
+    
+       for(int i=0; i < buttons.Length; i++)
+       {
+    	if(buttons[i].name == "DesignMode_Button")
+    	{
+    		buttons[i].onClick.AddListener(ToggleDesignMode); 
+    		modeText = buttons[i].GetComponentInChildren<Text>();
+    			
+    	}
+    		
+    	
+       }
     }
 
 
@@ -63,6 +78,18 @@ public enum Mode {
     			obj.enabled = value;
     	}
       }
+    
+      if(instance.modeText != null)
+    	instance.modeText.text = value ? "Stop Design" : "Start Design";
+    }
+
+
+    protected void ToggleDesignMode()
+    {
+      if(mode == Mode.Design)
+    	SetMode(Mode.Runtime);
+      else if(mode == Mode.Runtime)
+    	SetMode(Mode.Design);
     }
 
 

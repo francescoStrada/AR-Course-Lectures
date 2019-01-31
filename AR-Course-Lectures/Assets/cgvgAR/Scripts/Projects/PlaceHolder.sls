@@ -1,21 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{32 23:SLSProtectMethod.286331408{:String.17{8 9 "90855032"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{15 16 "OnTrackingFound"}
- 1.3 0.88 6 21  8 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{70 241 "\[\n
-  base.OnTrackingFound(sender, args);\n
-  renderer.enabled = false;\n
-\]\n
-"}
-#4{15 16 "OnTrackingFound"}
-#4{13 14 "override void"}
-#4{28 29 "object sender,EventArgs args"}
-#4{0 1 ""}
- 0}
-#3{#4{8 9 "46607664"}
+:ArrayOb.273{6:Dictionary.4369{32 23:SLSProtectMethod.286331408{:String.17{8 9 "46607664"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Awake"}
@@ -68,6 +51,23 @@
 #4{5 6 "Awake"}
 #4{4 5 "void"}
 #4{0 1 ""}
+#4{0 1 ""}
+ 0}
+#3{#4{8 9 "90855032"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{15 16 "OnTrackingFound"}
+ 1.3 0.88 6 21  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{70 241 "\[\n
+  base.OnTrackingFound(sender, args);\n
+  renderer.enabled = false;\n
+\]\n
+"}
+#4{15 16 "OnTrackingFound"}
+#4{13 14 "override void"}
+#4{28 29 "object sender,EventArgs args"}
 #4{0 1 ""}
  0}
 :SLSPublicMember.286331409{#4{8 9 "46607224"}
@@ -323,7 +323,7 @@ static string DESIGN_FILENAME = \"DesignData.dat\";"}
 #6{16 0}
 #4{1 2 "S"}
 @0 #4{0 1 ""}
-#4{16 17 "[SerializeField]"}
+#4{0 17 ""}
 }
 #7{#4{8 9 "66649233"}
 #1{2@0 @0 }
@@ -428,36 +428,43 @@ using System.IO;"}
 @0 #4{5 6 "0.01f"}
 #4{0 1 ""}
 }
-#5{#4{8 9 "46484880"}
+#7{#4{8 9 "66725185"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{5 6 "width"}
- 1.3 1.88 2 1  40 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{13 14 "AddNewElement"}
+ 1.3 0.88 5.2 1  13 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{5 6 "width"}
-#4{5 6 "float"}
-#4{0 1 ""}
-#6{16 0}
-#6{16 0}
-#4{1 2 "S"}
-@0 #4{0 1 ""}
-#4{0 1 ""}
-}
-#5{#4{8 9 "46585888"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{11 12 "orientation"}
- 1.3 1.88 4.4 1  36 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{11 12 "orientation"}
-#4{11 12 "Orientation"}
-#4{0 1 ""}
-#6{16 0}
-#6{16 0}
-#4{1 2 "S"}
-@0 #4{0 1 ""}
+ 1  1 #4{795 798 "\[\n
+  //prefab.name = \"Children nr.\";\n
+\n
+  string cleanName = prefab.name;\n
+  int position = cleanName.IndexOf(\"(Clone)\");\n
+  string objectName = cleanName.Remove(position, cleanName.Length - position);\n
+  prefab.name = objectName;\n
+\n
+\n
+  prefab.transform.position = transform.position + DELTA_LIFT * transform.up;\n
+  prefab.transform.rotation = transform.rotation;\n
+  prefab.transform.parent = transform.parent;\n
+  //prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);\n
+\n
+  PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();\n
+\n
+  ARInteractable[] interactables = prefab.transform.GetComponentsInChildren<ARInteractable>();\n
+  for(int i = 0; i < interactables.Length; i++)\n
+  \[\n
+\tinteractables[i].Initialize();\n
+\n
+\tif(placeable != interactables[i])\n
+\t\tinteractables[i].enabled = false;\n
+  \]\n
+\t\n
+\]\n
+"}
+#4{13 14 "AddNewElement"}
+#4{12 13 "virtual void"}
+#4{17 18 "GameObject prefab"}
 #4{0 1 ""}
 }
 #7{#4{9 10 "118978238"}
@@ -510,6 +517,22 @@ using System.IO;"}
 #4{0 41 ""}
 #4{0 1 ""}
 }
+#5{#4{8 9 "46585888"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{11 12 "orientation"}
+ 1.3 1.88 4.4 1  36 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{11 12 "orientation"}
+#4{11 12 "Orientation"}
+#4{0 1 ""}
+#6{16 0}
+#6{16 0}
+#4{1 2 "S"}
+@0 #4{0 1 ""}
+#4{0 1 ""}
+}
 #3{#4{9 10 "118978239"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -538,7 +561,7 @@ using System.IO;"}
  1.3 0.88 5.2 1  12 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{465 469 "\[\n
+ 1  1 #4{467 469 "\[\n
   Debug.Log(\"Ping...\");\n
 \n
   GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Cube);\n
@@ -547,7 +570,7 @@ using System.IO;"}
   plane.transform.position = transform.position + DELTA_LIFT * transform.up;\n
   plane.transform.rotation = transform.rotation;\n
   plane.transform.parent = transform.parent;\n
-  plane.transform.localScale = new Vector3(0.1f,0.1f,0.1f);\n
+  //plane.transform.localScale = new Vector3(0.1f,0.1f,0.1f);\n
 \n
   plane.AddComponent<PlaceableObject>();\n
 \n
@@ -559,43 +582,20 @@ using System.IO;"}
 #4{0 1 ""}
 #4{0 1 ""}
 }
-#7{#4{8 9 "66725185"}
+#5{#4{8 9 "46484880"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{13 14 "AddNewElement"}
- 1.3 0.88 5.2 1  13 #4{0 1 ""}
+@0  8 2 0.4 0 0 #4{5 6 "width"}
+ 1.3 1.88 2 1  40 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{793 798 "\[\n
-  //prefab.name = \"Children nr.\";\n
-\n
-  string cleanName = prefab.name;\n
-  int position = cleanName.IndexOf(\"(Clone)\");\n
-  string objectName = cleanName.Remove(position, cleanName.Length - position);\n
-  prefab.name = objectName;\n
-\n
-\n
-  prefab.transform.position = transform.position + DELTA_LIFT * transform.up;\n
-  prefab.transform.rotation = transform.rotation;\n
-  prefab.transform.parent = transform.parent;\n
-  prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);\n
-\n
-  PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();\n
-\n
-  ARInteractable[] interactables = prefab.transform.GetComponentsInChildren<ARInteractable>();\n
-  for(int i = 0; i < interactables.Length; i++)\n
-  \[\n
-\tinteractables[i].Initialize();\n
-\n
-\tif(placeable != interactables[i])\n
-\t\tinteractables[i].enabled = false;\n
-  \]\n
-\t\n
-\]\n
-"}
-#4{13 14 "AddNewElement"}
-#4{12 13 "virtual void"}
-#4{17 18 "GameObject prefab"}
+ 1  1 #4{5 6 "width"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#6{16 0}
+#6{16 0}
+#4{1 2 "S"}
+@0 #4{0 1 ""}
 #4{0 1 ""}
 }
 #3{#4{9 10 "118978237"}
@@ -640,14 +640,14 @@ using System.IO;"}
 :CLSCSSem.1118481{ 56  51 @167 @181 @105 @0 #6{16 0}
 #6{16 3@66 @152 @113 }
 #6{16 0}
-#6{16 6@15 @81 @3 @282 @93 @246 }
+#6{16 6@3 @81 @15 @282 @93 @243 }
 #6{16 0}
 #6{16 0}
 #6{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #6{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @189 @0 @219 @0 @27 @0 @204 @0 @0 @0 }
-#1{27@140 @0 @128 @0 @0 @0 @258 @270 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @234 @42 @54 @0 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @189 @0 @228 @0 @27 @0 @267 @0 @0 @0 }
+#1{27@140 @0 @128 @0 @0 @0 @255 @204 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @216 @42 @54 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #6{16 0}
