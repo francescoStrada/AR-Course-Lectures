@@ -18,3 +18,6 @@ MonoBehaviour:
   - displayname: Rotating Cube
     icon: {fileID: 21300000, guid: 65fb140375876f34d9cb959f9bc0e43b, type: 3}
     prefab: {fileID: 1909145654003532, guid: cc70a9e1a216b69478688a3e691b1fec, type: 2}
+  - displayname: Tour Eiffel
+    icon: {fileID: 21300000, guid: 65fb140375876f34d9cb959f9bc0e43b, type: 3}
+    prefab: {fileID: 1977761755725006, guid: 509b1f9a397d6c34aa1364bb1f4829da, type: 2}

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/cgvgAR/Samples/DesignMode/Scenes/DesignModeSample.unity
+    guid: 5d449df780654964da201d4e1ec50466
+  - enabled: 0
     path: Assets/Scenes/ARSimple.unity
     guid: cc7e33178944a464aa4bc58e4a17f0ce
   m_configObjects: {}

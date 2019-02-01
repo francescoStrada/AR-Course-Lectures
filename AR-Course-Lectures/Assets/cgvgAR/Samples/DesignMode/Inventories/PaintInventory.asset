@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Name: PaintInventory
   m_EditorClassIdentifier: 
   items:
-  - displayname: Default
-    icon: {fileID: 21300000, guid: 2deb3ee979616eb419546cae5935329f, type: 3}
-    prefab: {fileID: 1884961142020642, guid: 37bd784fe05c6b24eb5f38c0d88dfad5, type: 2}
+  - displayname: Edward Hopper - Nighthawks
+    icon: {fileID: 21300000, guid: afa3e02bb661df14f817490dfc08c6a9, type: 3}
+    prefab: {fileID: 1827869621473196, guid: d485cd000c563e44dbf2bd6a9aefd036, type: 2}
   - displayname: Van Gogh - Starry Night
     icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
-    prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
-  - displayname: Van Gogh - Starry Night
-    icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
-    prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
-  - displayname: Van Gogh - Starry Night
-    icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
-    prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
+    prefab: {fileID: 1872826509991718, guid: e9fd9e4a72c91554b9cfd9839ec05cf8, type: 2}

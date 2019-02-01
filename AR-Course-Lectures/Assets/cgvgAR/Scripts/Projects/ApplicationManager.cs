@@ -33,15 +33,6 @@ public enum Mode {
 
     protected void Start()
     {
-      PlaceHolder.ReadDesign();
-      SetMode(Mode.Design);
-    }
-
-
-    protected void Awake()
-    {
-      instance = this;
-    
       Button[] buttons = transform.GetComponentsInChildren<Button>();
     
        for(int i=0; i < buttons.Length; i++)
@@ -49,12 +40,22 @@ public enum Mode {
     	if(buttons[i].name == "DesignMode_Button")
     	{
     		buttons[i].onClick.AddListener(ToggleDesignMode); 
-    		modeText = buttons[i].GetComponentInChildren<Text>();
-    			
+    		modeText = buttons[i].GetComponentInChildren<Text>();	
+    	}
+    	else if(buttons[i].name == "ScreenCapture_Button")
+    	{
+    		buttons[i].onClick.AddListener(() => ScreenCapture.Instance.TakeCapture()); 
     	}
     		
     	
        }
+      
+      PlaceHolder.ReadDesign();
+      SetMode(Mode.Design);
+    
+      var vuforia = VuforiaARController.Instance;
+      vuforia.RegisterVuforiaStartedCallback(OnVuforiaStarted);    
+      vuforia.RegisterOnPauseCallback(OnPaused);
     }
 
 
@@ -101,6 +102,47 @@ public enum Mode {
     }
 
 
+    protected void OnVuforiaStarted()
+    {
+      CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+    }
+
+
+    protected void OnPaused(bool paused)
+    {
+      if (!paused) // resumed
+      {
+    	// Set again autofocus mode when app is resumed
+          	CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);    
+      }
+    }
+
+
+    protected void Awake()
+    {
+      instance = this;
+    
+    /*
+      Button[] buttons = transform.GetComponentsInChildren<Button>();
+    
+       for(int i=0; i < buttons.Length; i++)
+       {
+    	if(buttons[i].name == "DesignMode_Button")
+    	{
+    		buttons[i].onClick.AddListener(ToggleDesignMode); 
+    		modeText = buttons[i].GetComponentInChildren<Text>();	
+    	}
+    	else if(buttons[i].name == "ScreenCapture_Button")
+    	{
+    		buttons[i].onClick.AddListener(() => ScreenCapture.Instance.TakeCapture()); 
+    	}
+    		
+    	
+       }
+    */
+    }
+
+
 
 
     public static void SetMode(Mode mode)
@@ -113,6 +155,12 @@ public enum Mode {
     public static ApplicationManager Instance
     {
       get{return instance;}
+    }
+
+
+    public bool IsDesignMode
+    {
+      get{return mode == Mode.Design;}
     }
 
 

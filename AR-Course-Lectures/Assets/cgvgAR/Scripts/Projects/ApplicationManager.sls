@@ -1,13 +1,34 @@
-:ArrayOb.273{6:Dictionary.4369{16 12:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
+:ArrayOb.273{6:Dictionary.4369{16 15:SLSProtectMethod.286331408{:String.17{8 9 "67205784"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{5 6 "Start"}
  1.3 0.88 2 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{56 57 "\[\n
+ 1  1 #4{635 636 "\[\n
+  Button[] buttons = transform.GetComponentsInChildren<Button>();\n
+\n
+   for(int i=0; i < buttons.Length; i++)\n
+   \[\n
+\tif(buttons[i].name == \"DesignMode_Button\")\n
+\t\[\n
+\t\tbuttons[i].onClick.AddListener(ToggleDesignMode); \n
+\t\tmodeText = buttons[i].GetComponentInChildren<Text>();\t\n
+\t\]\n
+\telse if(buttons[i].name == \"ScreenCapture_Button\")\n
+\t\[\n
+\t\tbuttons[i].onClick.AddListener(() => ScreenCapture.Instance.TakeCapture()); \n
+\t\]\n
+\t\t\n
+\t\n
+   \]\n
+  \n
   PlaceHolder.ReadDesign();\n
   SetMode(Mode.Design);\n
+\n
+  var vuforia = VuforiaARController.Instance;\n
+  vuforia.RegisterVuforiaStartedCallback(OnVuforiaStarted);    \n
+  vuforia.RegisterOnPauseCallback(OnPaused);\n
 \]\n
 "}
 #4{5 6 "Start"}
@@ -89,6 +110,42 @@ using Vuforia;"}
 #4{0 1 ""}
 #4{0 1 ""}
 }
+#3{#4{8 9 "67993201"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{8 17 "OnPaused"}
+ 1.3 0.88 3.2 32  10 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{184 185 "\[\n
+  if (!paused) // resumed\n
+  \[\n
+\t// Set again autofocus mode when app is resumed\n
+      \tCameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);    \n
+  \]\n
+\]\n
+"}
+#4{8 17 "OnPaused"}
+#4{4 5 "void"}
+#4{11 12 "bool paused"}
+#4{0 1 ""}
+ 0}
+#3{#4{8 9 "67993200"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{16 17 "OnVuforiaStarted"}
+ 1.3 0.880004 6.4 32  9 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{92 93 "\[\n
+  CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);\n
+\]\n
+"}
+#4{16 17 "OnVuforiaStarted"}
+#4{4 5 "void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 #3{#4{8 9 "46630344"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -150,6 +207,41 @@ using Vuforia;"}
 #4{9 10 "Mode mode"}
 #4{0 1 ""}
 }
+#3{#4{8 9 "46629952"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{5 6 "Awake"}
+ 1.3 0.88 2 10  6 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{450 451 "\[\n
+  instance = this;\n
+\n
+/*\n
+  Button[] buttons = transform.GetComponentsInChildren<Button>();\n
+\n
+   for(int i=0; i < buttons.Length; i++)\n
+   \[\n
+\tif(buttons[i].name == \"DesignMode_Button\")\n
+\t\[\n
+\t\tbuttons[i].onClick.AddListener(ToggleDesignMode); \n
+\t\tmodeText = buttons[i].GetComponentInChildren<Text>();\t\n
+\t\]\n
+\telse if(buttons[i].name == \"ScreenCapture_Button\")\n
+\t\[\n
+\t\tbuttons[i].onClick.AddListener(() => ScreenCapture.Instance.TakeCapture()); \n
+\t\]\n
+\t\t\n
+\t\n
+   \]\n
+*/\n
+\]\n
+"}
+#4{5 6 "Awake"}
+#4{4 5 "void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 #7{#4{8 9 "67253776"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -166,36 +258,21 @@ using Vuforia;"}
 @0 #4{9 10 "Mode.None"}
 #4{0 1 ""}
 }
-#3{#4{8 9 "46629952"}
+#10{#4{8 9 "67996728"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Awake"}
- 1.3 0.88 2 10  6 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{12 13 "IsDesignMode"}
+ 1.3 0.88 4.8 1  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{310 320 "\[\n
-  instance = this;\n
-\n
-  Button[] buttons = transform.GetComponentsInChildren<Button>();\n
-\n
-   for(int i=0; i < buttons.Length; i++)\n
-   \[\n
-\tif(buttons[i].name == \"DesignMode_Button\")\n
-\t\[\n
-\t\tbuttons[i].onClick.AddListener(ToggleDesignMode); \n
-\t\tmodeText = buttons[i].GetComponentInChildren<Text>();\n
-\t\t\t\n
-\t\]\n
-\t\t\n
-\t\n
-   \]\n
-\]\n
-"}
-#4{5 6 "Awake"}
-#4{4 5 "void"}
+ 1  1 #4{38 39 "\[\n
+  get\[return mode == Mode.Design;\]\n
+\]"}
+#4{12 13 "IsDesignMode"}
+#4{4 5 "bool"}
 #4{0 1 ""}
 #4{0 1 ""}
- 0}
+}
 #7{#4{8 9 "46718544"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -233,16 +310,16 @@ using Vuforia;"}
  0}
 }
 :CLSCSSem.1118481{ 56  51 @15 @54 @46 @0 #6{16 0}
-#6{16 3@31 @98 @125 }
+#6{16 3@31 @134 @161 }
 #6{16 0}
-#6{16 4@3 @113 @74 @140 }
+#6{16 6@3 @98 @176 @86 @74 @122 }
 #6{16 0}
 #6{16 0}
-#6{16 0}
-#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #6{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@86 @62 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#6{16 0}
+#1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@110 @62 @149 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #6{16 0}

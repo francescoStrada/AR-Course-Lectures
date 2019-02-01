@@ -233,8 +233,6 @@ static string DESIGN_FILENAME = "DesignData.dat";
 
     public virtual void AddNewElement(GameObject prefab)
     {
-      //prefab.name = "Children nr.";
-    
       string cleanName = prefab.name;
       int position = cleanName.IndexOf("(Clone)");
       string objectName = cleanName.Remove(position, cleanName.Length - position);
@@ -246,7 +244,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
       prefab.transform.parent = transform.parent;
       //prefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
     
-      PlaceableObject placeable = prefab.AddComponent<PlaceableObject>();
+      PlaceableObject placeable = prefab.GetComponent<PlaceableObject>();
     
       ARInteractable[] interactables = prefab.transform.GetComponentsInChildren<ARInteractable>();
       for(int i = 0; i < interactables.Length; i++)
@@ -322,7 +320,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
       try {
       	strm = new BinaryReader(new FileStream(fileName, FileMode.Open));  
       } 
-      catch (IOException e) 
+      catch (Exception e) 
       {
       	Debug.LogError(e.Message + "\n Cannot open file.");
            	return false;

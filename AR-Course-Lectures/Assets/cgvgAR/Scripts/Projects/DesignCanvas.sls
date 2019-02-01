@@ -40,8 +40,8 @@
  1.3 0.88 4 21  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{106 276 "\[\n
-  if(!designModeActive)\n
+ 1  1 #4{130 276 "\[\n
+  if(!ApplicationManager.Instance.IsDesignMode)\n
 \treturn;\n
 \n
   Debug.Log(\"Showing canvas\");\n

@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 3546f2e6120fe30499953aeb6122f216
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Eiffel.000
+    100002: Eiffel.001
+    100004: Eiffel.003
+    100006: Eiffel.004
+    100008: Eiffel.005
+    100010: //RootNode
+    100012: Gard_c
+    100014: Material1
+    100016: Material1.001
+    100018: Material1.002
+    100020: Plane.001
+    100022: Plane.014
+    400000: Eiffel.000
+    400002: Eiffel.001
+    400004: Eiffel.003
+    400006: Eiffel.004
+    400008: Eiffel.005
+    400010: //RootNode
+    400012: Gard_c
+    400014: Material1
+    400016: Material1.001
+    400018: Material1.002
+    400020: Plane.001
+    400022: Plane.014
+    2100000: Tour_Eiffel
+    2100002: Sol_Beton
+    2100004: Griglia_3
+    2100006: M_2
+    2100008: frame2_4_
+    2100010: frame2_2_
+    2100012: frame2
+    2100014: frame2_3_
+    2100016: frame2_1_
+    2100018: top_middle
+    2100020: _Gray6_
+    2100022: profile
+    2100024: M_3
+    2100026: top
+    2100028: M_4
+    2100030: M_4_4_
+    2100032: M_4_2_
+    2100034: M_4_3_
+    2100036: M_4_8_
+    2100038: M_4_5_
+    2100040: M_4_9_
+    2100042: M_4_6_
+    2100044: M_4_7_
+    2100046: M_4_1_
+    2100048: Google_Earth_Snapshot
+    2100050: internal
+    2100052: frame3_
+    2100054: frame2_
+    2100056: frame
+    2100058: frame1_
+    2100060: basestone
+    2100062: M_1
+    2100064: M_6
+    2100066: arch
+    2100068: middle
+    2100070: _Charcoal_
+    2100072: window
+    2100074: entrance
+    2100076: Garde-corp
+    2100078: Creme-Piliers
+    2300000: Eiffel.000
+    2300002: Eiffel.001
+    2300004: Eiffel.003
+    2300006: Eiffel.004
+    2300008: Eiffel.005
+    2300010: Gard_c
+    2300012: Material1
+    2300014: Material1.001
+    2300016: Material1.002
+    2300018: Plane.001
+    2300020: Plane.014
+    3300000: Eiffel.000
+    3300002: Eiffel.001
+    3300004: Eiffel.003
+    3300006: Eiffel.004
+    3300008: Eiffel.005
+    3300010: Gard_c
+    3300012: Material1
+    3300014: Material1.001
+    3300016: Material1.002
+    3300018: Plane.001
+    3300020: Plane.014
+    4300000: Material1.002
+    4300002: Material1.001
+    4300004: Eiffel.005
+    4300006: Gard_c
+    4300008: Plane.014
+    4300010: Eiffel.000
+    4300012: Eiffel.001
+    4300014: Eiffel.004
+    4300016: Eiffel.003
+    4300018: Plane.001
+    4300020: Material1
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

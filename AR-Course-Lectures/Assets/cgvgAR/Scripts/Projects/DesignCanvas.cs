@@ -49,7 +49,7 @@ class DesignCanvas : MonoBehaviour
 
     protected void ShowCanvas(object sender = null,EventArgs args = null)
     {
-      if(!designModeActive)
+      if(!ApplicationManager.Instance.IsDesignMode)
     	return;
     
       Debug.Log("Showing canvas");

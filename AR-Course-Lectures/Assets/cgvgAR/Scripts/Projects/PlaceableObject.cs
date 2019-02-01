@@ -23,6 +23,10 @@ const float SCALE_FACTOR = 0.1f;
 
     protected Camera cam = null;
     protected PlaceHolder holder;
+    [SerializeField]
+    protected bool constrainRotation = false;
+    [SerializeField]
+    protected bool constrainScale = false;
 
 
     protected Vector3 CheckIntersection(Vector3 pos)
@@ -130,7 +134,9 @@ const float SCALE_FACTOR = 0.1f;
 
     public override void Resize(float delta)
     {
-      Debug.Log("Delta = " + delta);
+      //Debug.Log("Delta = " + delta);
+      if(constrainScale)
+    	return;
     
       if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
       {
@@ -145,8 +151,10 @@ const float SCALE_FACTOR = 0.1f;
 
     public override void Rotate(float delta)
     {
-      Debug.Log("Delta = " + delta);
-      
+      //Debug.Log("Delta = " + delta);
+      if(constrainRotation)
+    	return;
+     
       transform.Rotate(Vector3.up * delta);
     
     /*
@@ -157,6 +165,12 @@ const float SCALE_FACTOR = 0.1f;
       rotationDeg.z = - delta;
       desiredRotation *= Quaternion.Euler(rotationDeg);
     */
+    }
+
+
+    public void Remove()
+    {
+      Destroy(gameObject);
     }
 
 

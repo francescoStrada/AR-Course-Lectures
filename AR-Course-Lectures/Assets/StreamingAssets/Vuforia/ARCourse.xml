@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="chips" size="0.285000 0.199500" />
     <ImageTarget name="art_of_brick_logo" size="0.010000 0.010000" />
     <ImageTarget name="art_of_brick_artwork_01" size="0.015000 0.010933" />
     <ImageTarget name="natan" size="0.010000 0.006670" />
     <ImageTarget name="palazzo_promotrice" size="0.010000 0.006670" />
     <ImageTarget name="art_of_brick_artwork_02" size="0.010000 0.007500" />
-    <ImageTarget name="arizona-monument-valley" size="0.150000 0.108810" />
-    <ImageTarget name="pyramid" size="0.150000 0.084844" />
-    <ImageTarget name="easter_island" size="0.150000 0.084150" />
-    <ImageTarget name="stonehenge" size="0.150000 0.103050" />
     <ImageTarget name="stones_01" size="0.150000 0.105000" />
   </Tracking>
 </QCARConfig>
