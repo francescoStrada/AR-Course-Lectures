@@ -18,3 +18,9 @@ MonoBehaviour:
   - displayname: Van Gogh - Starry Night
     icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
     prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
+  - displayname: Van Gogh - Starry Night
+    icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
+    prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
+  - displayname: Van Gogh - Starry Night
+    icon: {fileID: 21300000, guid: 41009f3786ea5c64383cb6c89ce88dfc, type: 3}
+    prefab: {fileID: 1125562034088498, guid: 59c57e178983786438d51cbe8dd75792, type: 2}
