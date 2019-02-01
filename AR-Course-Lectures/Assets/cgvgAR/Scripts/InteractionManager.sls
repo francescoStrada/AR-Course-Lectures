@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{32 25:SLSThisIcon.286331409{:String.17{8 9 "45368024"}
+:ArrayOb.273{6:Dictionary.4369{32 28:SLSThisIcon.286331409{:String.17{8 9 "45368024"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  52 45 0.4 0 0 #4{34 35 "InteractionManager : MonoBehaviour"}
@@ -12,6 +12,22 @@
 #5{16 0}
 #4{0 2 ""}
 @0 #4{0 1 ""}
+}
+:SLSProtectMember.286331409{#4{8 9 "67577536"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{19 20 "longInteractionTime"}
+ 0.299999 1.88 7.6 30  34 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{19 20 "longInteractionTime"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{0 1 ""}
+#4{16 17 "[SerializeField]"}
 }
 :SLSPublicMember.286331409{#4{8 9 "48237904"}
 #1{2@0 @0 }
@@ -29,7 +45,7 @@
 @0 #4{4 5 "null"}
 #4{0 1 ""}
 }
-:SLSProtectMember.286331409{#4{8 9 "46524872"}
+#6{#4{8 9 "46524872"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{10 11 "isDragging"}
@@ -45,39 +61,7 @@
 @0 #4{5 6 "false"}
 #4{0 1 ""}
 }
-#7{#4{8 9 "51845240"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{3 4 "cam"}
- 3.4 1.88 1.2 30  40 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{3 7 "cam"}
-#4{6 7 "Camera"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "null"}
-#4{0 1 ""}
-}
-#7{#4{8 9 "46528832"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{15 16 "lastTapPosition"}
- 1 1.88 6 21  37 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{15 16 "lastTapPosition"}
-#4{7 8 "Vector3"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{0 1 ""}
-#4{0 1 ""}
-}
-#7{#4{8 9 "44567000"}
+#6{#4{8 9 "44567000"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{5 6 "gazed"}
@@ -93,14 +77,78 @@
 @0 #4{4 5 "null"}
 #4{0 1 ""}
 }
-:SLSProtectMethod.286331408{#4{8 9 "52325368"}
+#6{#4{8 9 "46528832"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{15 16 "lastTapPosition"}
+ 1 1.88 6 21  37 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{15 16 "lastTapPosition"}
+#4{7 8 "Vector3"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{0 1 ""}
+#4{0 1 ""}
+}
+#6{#4{8 9 "51845240"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{3 4 "cam"}
+ 3.4 1.88 1.2 30  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{3 7 "cam"}
+#4{6 7 "Camera"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "null"}
+#4{0 1 ""}
+}
+:SLSProtectMethod.286331408{#4{8 9 "67207352"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{19 20 "LongPressingTimeout"}
+ 1.3 0.880004 7.6 30  14 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{382 383 "\[\n
+  float timeCounter = 0f;\n
+  while(!isDragging && isLongPressing && timeCounter < longInteractionTime)\n
+  \[\n
+\ttimeCounter += Time.deltaTime;\n
+\tyield return null;\n
+  \]\n
+\n
+  isLongPressing = false;\n
+  \n
+  if(timeCounter >= longInteractionTime && interactable != null)\n
+  \[\n
+\tinteractable.LongInteract();\n
+\tDebug.Log(\"Detected long interaction\");\n
+\tyield return null;\n
+  \]\n
+\n
+  yield return null;\n
+\]\n
+"}
+#4{19 20 "LongPressingTimeout"}
+#4{11 12 "IEnumerator"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
+#8{#4{8 9 "52325368"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{17 18 "CheckInteractable"}
  1.3 0.88 6.8 30  11 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{353 354 "\[\n
+ 1  1 #4{454 455 "\[\n
   RaycastHit hit;\n
   lastTapPosition = pos;\n
 \n
@@ -110,10 +158,12 @@
 \tTransform t = hit.transform;\n
 \twhile(t != null)\n
 \t\[\n
-\t\tARInteractable found = t.GetComponent<ARInteractable>();\n
-\t\tif(found != null && found.enabled)\n
-\t\t\treturn found;\n
-\n
+\t\tARInteractable[] interactables = t.GetComponents<ARInteractable>();\n
+\t\tfor(int i = 0; i < interactables.Length; i++)\n
+\t\t\[\n
+\t\t\tif(interactables[i] != null && interactables[i].enabled)\n
+\t\t\t\treturn interactables[i];\n
+\t\t\]\n
 \t\tt = t.parent;\n
 \t\]\n
 \n
@@ -128,20 +178,20 @@
 #4{11 12 "Vector3 pos"}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "51851912"}
+#6{#4{8 9 "67571816"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{5 6 "timer"}
- 3 1.88 2 39  40 #4{0 1 ""}
+@0  8 2 0.4 0 0 #4{14 15 "isLongPressing"}
+ 1.2 1.88 5.6 39  34 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{5 6 "timer"}
-#4{5 6 "float"}
+ 1  1 #4{14 15 "isLongPressing"}
+#4{4 5 "bool"}
 #4{0 1 ""}
 #5{16 0}
 #5{16 0}
 #4{1 2 "S"}
-@0 #4{2 3 "0f"}
+@0 #4{5 6 "false"}
 #4{0 1 ""}
 }
 #8{#4{8 9 "52332473"}
@@ -180,6 +230,22 @@
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#6{#4{8 9 "51851912"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{5 6 "timer"}
+ 3 1.88 2 39  40 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{5 6 "timer"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{2 3 "0f"}
+#4{0 1 ""}
+}
 #8{#4{8 9 "52332472"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -187,7 +253,7 @@
  1.3 0.88 3.2 20  11 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{2164 2165 "\[\n
+ 1  1 #4{2373 2374 "\[\n
   if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)\n
   \[\n
 \tif (Input.touchCount > 0 && Input.touchCount < 2)\n
@@ -207,8 +273,17 @@
 \t\t\t\tinteractable.Interact();\n
 \n
 \t\t\tinteractable = null;\n
+\t\t\tisLongPressing = false;\n
 \t\t\]\n
-\t\telse if (interactable != null && (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved))\n
+\t\telse if(interactable != null && Input.GetTouch(0).phase == TouchPhase.Stationary)\n
+\t\t\[\n
+\t\t\tif(isLongPressing)\n
+\t\t\t\treturn;\n
+\n
+\t\t\tisLongPressing = true;\n
+\t\t\tStartCoroutine(LongPressingTimeout());\n
+\t\t\]\n
+\t\telse if (interactable != null && Input.GetTouch(0).phase == TouchPhase.Moved)\n
 \t\t\[\t\n
 \t\t\tisDragging = true;\n
 \t\t\tinteractable.Drag(Input.GetTouch(0).position, Input.GetTouch(0).deltaPosition);\n
@@ -219,12 +294,6 @@
   \]\n
   else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)\n
   \[\n
-/*\n
-\tif(Input.GetMouseButton(0))\n
-\t\tDebug.Log(\"button down\");\n
-\telse\n
-\t\tDebug.Log(\"button up\");\n
-*/\n
 \n
 \t// RESIZING WITH SCROLL WHEEL\n
 \tif(Input.mouseScrollDelta.y != 0f)\n
@@ -260,6 +329,7 @@
 \t\t\tinteractable.Interact();\n
 \t\t\t\n
 \t\tinteractable = null;\n
+\t\tisLongPressing = false;\n
 \t\]\n
 \telse if(interactable != null && Input.GetMouseButton(0))\n
 \t\[\n
@@ -268,8 +338,14 @@
 \t\t//Debug.Log(\"Mouse drag \" + delta);\n
 \t\t// no movement\n
 \t\tif(delta == Vector3.zero)\n
-\t\t\treturn;\n
+\t\t\[\n
+\t\t\tif(isLongPressing)\n
+\t\t\t\treturn;\n
 \n
+\t\t\tisLongPressing = true;\n
+\t\t\tStartCoroutine(LongPressingTimeout());\n
+\t\t\treturn;\n
+\t\t\]\n
 \n
 \t\tlastTapPosition = Input.mousePosition;\n
 \t\tinteractable.Drag(Input.mousePosition, delta);\n
@@ -308,9 +384,10 @@
  0.299999 0.88 7.2 33  3 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 0  0 #4{99 100 "using UnityEngine;\n
+ 0  0 #4{125 134 "using UnityEngine;\n
 using UnityEngine.Assertions;\n
 using System;\n
+using System.Collections;\n
 using Vuforia;\n
 using UnityEngine.UI;"}
 }
@@ -340,7 +417,7 @@ using UnityEngine.UI;"}
 #4{26 27 "Vector2 pos1, Vector2 pos2"}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "46526192"}
+#6{#4{8 9 "46526192"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{12 13 "interactable"}
@@ -406,23 +483,7 @@ using UnityEngine.UI;"}
 #4{0 1 ""}
 #4{0 1 ""}
  0}
-#7{#4{8 9 "48254760"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{22 23 "tapFeedbackAudioSource"}
- 0.3 1.88 8.8 11  37 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{22 23 "tapFeedbackAudioSource"}
-#4{11 12 "AudioSource"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "null"}
-#4{0 1 ""}
-}
-#6{#4{8 9 "45199728"}
+#7{#4{8 9 "45199728"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{6 7 "useTap"}
@@ -436,6 +497,22 @@ using UnityEngine.UI;"}
 #5{16 0}
 #4{1 2 "S"}
 @0 #4{4 5 "true"}
+#4{0 1 ""}
+}
+#6{#4{8 9 "48254760"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{22 23 "tapFeedbackAudioSource"}
+ 0.3 1.88 8.8 11  37 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{22 23 "tapFeedbackAudioSource"}
+#4{11 12 "AudioSource"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "null"}
 #4{0 1 ""}
 }
 :JLSFriendDeclare.286331408{#4{8 9 "45309552"}
@@ -453,38 +530,6 @@ const float minPinchDistance = 0;\n
  \n
 const float panRatio = 1;\n
 const float minPanDistance = 0;"}
-}
-#6{#4{8 9 "51899520"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{10 11 "gazeCursor"}
- 1.3 1.88 4 1  34 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{10 11 "gazeCursor"}
-#4{20 21 "UnityEngine.UI.Image"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "null"}
-#4{0 1 ""}
-}
-#6{#4{8 9 "44919952"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 2 0.4 0 0 #4{12 13 "gazeInterval"}
- 1.3 1.88 4.8 1  36 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{12 13 "gazeInterval"}
-#4{5 6 "float"}
-#4{0 1 ""}
-#5{16 0}
-#5{16 0}
-#4{1 2 "S"}
-@0 #4{4 5 "3.0f"}
-#4{0 1 ""}
 }
 #8{#4{8 9 "16956944"}
 #1{2@0 @0 }
@@ -510,7 +555,39 @@ const float minPanDistance = 0;"}
 #4{0 11 ""}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "44854921"}
+#7{#4{8 9 "44919952"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{12 13 "gazeInterval"}
+ 1.3 1.88 4.8 1  36 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{12 13 "gazeInterval"}
+#4{5 6 "float"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "3.0f"}
+#4{0 1 ""}
+}
+#7{#4{8 9 "51899520"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{10 11 "gazeCursor"}
+ 1.3 1.88 4 1  34 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{10 11 "gazeCursor"}
+#4{20 21 "UnityEngine.UI.Image"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{4 5 "null"}
+#4{0 1 ""}
+}
+#7{#4{8 9 "44854921"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{7 8 "useGaze"}
@@ -608,16 +685,16 @@ const float minPanDistance = 0;"}
 #4{0 1 ""}
  0}
 }
-:CLSCSSem.1118481{ 56  51 @3 @155 @244 @0 #5{16 1@309 }
-#5{16 7@77 @47 @104 @214 @62 @32 @175 }
+:CLSCSSem.1118481{ 56  51 @3 @197 @286 @0 #5{16 1@351 }
+#5{16 9@62 @92 @158 @271 @77 @47 @217 @131 @17 }
 #5{16 0}
-#5{16 9@202 @190 @143 @282 @92 @131 @119 @324 @163 }
+#5{16 10@244 @232 @185 @294 @119 @173 @146 @366 @205 @107 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @17 @0 @252 @0 @267 @0 @229 @0 @294 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @32 @0 @321 @0 @306 @0 @256 @0 @336 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}

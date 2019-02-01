@@ -37,6 +37,25 @@ using System;"}
 @0  0 0 1
  0  0 #4{0 1 ""}
 }
+#3{#4{8 9 "90855817"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{5 6 "Start"}
+ 1.3 0.88 2 10  8 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{123 402 "\[\n
+  base.Start();\n
+  \n
+  // add specific behaviour at startup\n
+  director = GetComponentInChildren<PlayableDirector>(true);\n
+\]\n
+"}
+#4{5 6 "Start"}
+#4{13 14 "override void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 #3{#4{8 9 "90855033"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -55,25 +74,6 @@ using System;"}
 #4{14 16 "OnTrackingLost"}
 #4{13 14 "override void"}
 #4{28 29 "object sender,EventArgs args"}
-#4{0 1 ""}
- 0}
-#3{#4{8 9 "90855817"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Start"}
- 1.3 0.88 2 10  8 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{123 402 "\[\n
-  base.Start();\n
-  \n
-  // add specific behaviour at startup\n
-  director = GetComponentInChildren<PlayableDirector>(true);\n
-\]\n
-"}
-#4{5 6 "Start"}
-#4{13 14 "override void"}
-#4{0 1 ""}
 #4{0 1 ""}
  0}
 #3{#4{8 9 "90855032"}
@@ -165,7 +165,7 @@ using System;"}
 :CLSCSSem.1118481{ 56  51 @82 @15 @23 @0 #8{16 0}
 #8{16 1@67 }
 #8{16 0}
-#8{16 4@43 @55 @31 @3 }
+#8{16 4@31 @55 @43 @3 }
 #8{16 0}
 #8{16 0}
 #8{16 0}

@@ -111,6 +111,12 @@ const float SCALE_FACTOR = 0.1f;
     }
 
 
+    protected void Remove()
+    {
+      Destroy(gameObject);
+    }
+
+
 
 
     public void StoreOn()
@@ -129,6 +135,13 @@ const float SCALE_FACTOR = 0.1f;
     
       if(end != Vector3.zero && start != Vector3.zero)
       	transform.Translate(end - start, Space.World);
+    }
+
+
+    public override void LongInteract()
+    { 
+      base.LongInteract();
+      Remove(); 
     }
 
 
@@ -165,12 +178,6 @@ const float SCALE_FACTOR = 0.1f;
       rotationDeg.z = - delta;
       desiredRotation *= Quaternion.Euler(rotationDeg);
     */
-    }
-
-
-    public void Remove()
-    {
-      Destroy(gameObject);
     }
 
 

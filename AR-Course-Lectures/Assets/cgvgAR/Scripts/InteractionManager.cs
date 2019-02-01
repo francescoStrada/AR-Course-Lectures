@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using System;
+using System.Collections;
 using Vuforia;
 using UnityEngine.UI;
 
@@ -36,6 +37,9 @@ const float minPanDistance = 0;
     protected Vector3 lastTapPosition;
     protected bool isDragging = false;
     protected ARInteractable interactable = null;
+    protected bool isLongPressing = false;
+    [SerializeField]
+    protected float longInteractionTime;
 
     public AudioClip tapFeedbackSound = null;
     public UnityEngine.UI.Image gazeCursor = null;
@@ -106,10 +110,12 @@ const float minPanDistance = 0;
     	Transform t = hit.transform;
     	while(t != null)
     	{
-    		ARInteractable found = t.GetComponent<ARInteractable>();
-    		if(found != null && found.enabled)
-    			return found;
-    
+    		ARInteractable[] interactables = t.GetComponents<ARInteractable>();
+    		for(int i = 0; i < interactables.Length; i++)
+    		{
+    			if(interactables[i] != null && interactables[i].enabled)
+    				return interactables[i];
+    		}
     		t = t.parent;
     	}
     
@@ -141,8 +147,17 @@ const float minPanDistance = 0;
     				interactable.Interact();
     
     			interactable = null;
+    			isLongPressing = false;
     		}
-    		else if (interactable != null && (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved))
+    		else if(interactable != null && Input.GetTouch(0).phase == TouchPhase.Stationary)
+    		{
+    			if(isLongPressing)
+    				return;
+    
+    			isLongPressing = true;
+    			StartCoroutine(LongPressingTimeout());
+    		}
+    		else if (interactable != null && Input.GetTouch(0).phase == TouchPhase.Moved)
     		{	
     			isDragging = true;
     			interactable.Drag(Input.GetTouch(0).position, Input.GetTouch(0).deltaPosition);
@@ -153,12 +168,6 @@ const float minPanDistance = 0;
       }
       else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
       {
-    /*
-    	if(Input.GetMouseButton(0))
-    		Debug.Log("button down");
-    	else
-    		Debug.Log("button up");
-    */
     
     	// RESIZING WITH SCROLL WHEEL
     	if(Input.mouseScrollDelta.y != 0f)
@@ -194,6 +203,7 @@ const float minPanDistance = 0;
     			interactable.Interact();
     			
     		interactable = null;
+    		isLongPressing = false;
     	}
     	else if(interactable != null && Input.GetMouseButton(0))
     	{
@@ -202,8 +212,14 @@ const float minPanDistance = 0;
     		//Debug.Log("Mouse drag " + delta);
     		// no movement
     		if(delta == Vector3.zero)
-    			return;
+    		{
+    			if(isLongPressing)
+    				return;
     
+    			isLongPressing = true;
+    			StartCoroutine(LongPressingTimeout());
+    			return;
+    		}
     
     		lastTapPosition = Input.mousePosition;
     		interactable.Drag(Input.mousePosition, delta);
@@ -308,6 +324,28 @@ const float minPanDistance = 0;
       }
      
       return result;
+    }
+
+
+    protected IEnumerator LongPressingTimeout()
+    {
+      float timeCounter = 0f;
+      while(!isDragging && isLongPressing && timeCounter < longInteractionTime)
+      {
+    	timeCounter += Time.deltaTime;
+    	yield return null;
+      }
+    
+      isLongPressing = false;
+      
+      if(timeCounter >= longInteractionTime && interactable != null)
+      {
+    	interactable.LongInteract();
+    	Debug.Log("Detected long interaction");
+    	yield return null;
+      }
+    
+      yield return null;
     }
 
 

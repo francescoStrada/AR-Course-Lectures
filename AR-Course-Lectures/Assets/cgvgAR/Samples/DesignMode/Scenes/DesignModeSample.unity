@@ -377,6 +377,11 @@ Prefab:
       propertyPath: gazeCursor
       value: 
       objectReference: {fileID: 32429141}
+    - target: {fileID: 114784717789049924, guid: bd2eeec1447427b43a67926f42155fec,
+        type: 2}
+      propertyPath: longInteractionTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2eeec1447427b43a67926f42155fec, type: 2}
   m_IsPrefabAsset: 0
@@ -1056,7 +1061,7 @@ Prefab:
     - target: {fileID: 224552198788823410, guid: 3d6535b6e50aa0f4899cff0a8293f710,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 147.81062
+      value: 147.81056
       objectReference: {fileID: 0}
     - target: {fileID: 224712720190554186, guid: 3d6535b6e50aa0f4899cff0a8293f710,
         type: 2}
@@ -1455,7 +1460,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.05
   far clip plane: 2000
   field of view: 60
   orthographic: 0

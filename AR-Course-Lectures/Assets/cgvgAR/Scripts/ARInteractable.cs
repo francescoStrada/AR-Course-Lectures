@@ -66,6 +66,16 @@ class ARInteractable : MonoBehaviour
     }
 
 
+    public virtual void LongInteract()
+    {
+      // implement specific behaviour
+      if(activateOnTrackingFound)
+    	return;
+      
+      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
+    }
+
+
     public virtual void Drag(Vector3 position,Vector3 delta)
     {
     }

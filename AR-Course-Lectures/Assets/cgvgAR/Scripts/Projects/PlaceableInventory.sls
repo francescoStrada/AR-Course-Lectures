@@ -1,40 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{16 6:JLSGlobalDeclare.286331408{:String.17{8 9 "46573824"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{18 19 "Global Declaration"}
- 0.299999 0.88 7.2 33  3 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 0  0 #4{200 201 "using UnityEngine;\n
-using System;\n
-using System.Collections.Generic;\n
-\n
-[System.Serializable]\n
-public class InventoryItem\n
-\[\n
-  public string displayname;\n
-  public Sprite icon;\n
-  public GameObject prefab;\n
-\]\n
-"}
-}
-:SLSThisIcon.286331409{#4{8 9 "66521360"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  52 45 0.4 0 0 #4{37 38 "PlaceableInventory : ScriptableObject"}
- 16.2343 2.2 23.68 4  0 #4{0 1 ""}
-#4{0 1 ""}
-@0  38 5 1
- 0  0 #4{18 19 "PlaceableInventory"}
-#4{16 17 "ScriptableObject"}
-#4{0 13 ""}
-:OrderedCltn.4369{16 0}
-#6{16 1#4{83 84 "[CreateAssetMenu(fileName = \"Inventory\", menuName = \"cgvgAR/Inventory\", order = 1)]"}
-}
-#4{0 2 ""}
-@0 #4{0 1 ""}
-}
-:SLSPublicMethod.286331408{#4{8 9 "66882856"}
+:ArrayOb.273{6:Dictionary.4369{16 6:SLSPublicMethod.286331408{:String.17{8 9 "66882856"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{13 14 "GetItemByName"}
@@ -56,6 +20,42 @@ public class InventoryItem\n
 #4{11 12 "string name"}
 #4{0 1 ""}
 }
+:SLSThisIcon.286331409{#4{8 9 "66521360"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  52 45 0.4 0 0 #4{37 38 "PlaceableInventory : ScriptableObject"}
+ 16.2343 2.2 23.68 4  0 #4{0 1 ""}
+#4{0 1 ""}
+@0  38 5 1
+ 0  0 #4{18 19 "PlaceableInventory"}
+#4{16 17 "ScriptableObject"}
+#4{0 13 ""}
+:OrderedCltn.4369{16 0}
+#6{16 1#4{83 84 "[CreateAssetMenu(fileName = \"Inventory\", menuName = \"cgvgAR/Inventory\", order = 1)]"}
+}
+#4{0 2 ""}
+@0 #4{0 1 ""}
+}
+:JLSGlobalDeclare.286331408{#4{8 9 "46573824"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{18 19 "Global Declaration"}
+ 0.299999 0.88 7.2 33  3 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 0  0 #4{200 201 "using UnityEngine;\n
+using System;\n
+using System.Collections.Generic;\n
+\n
+[System.Serializable]\n
+public class InventoryItem\n
+\[\n
+  public string displayname;\n
+  public Sprite icon;\n
+  public GameObject prefab;\n
+\]\n
+"}
+}
 :SLSProtectMember.286331409{#4{8 9 "46627696"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -71,6 +71,15 @@ public class InventoryItem\n
 #4{1 2 "S"}
 @0 #4{25 26 "new List<InventoryItem>()"}
 #4{16 17 "[SerializeField]"}
+}
+:JLSFriendDeclare.286331408{#4{8 9 "46578944"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{17 18 "Class Declaration"}
+ 0.299999 0.88 6.8 33  5 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 0  0 #4{0 1 ""}
 }
 :SLSProperty.286331392{#4{8 9 "46522528"}
 #1{2@0 @0 }
@@ -89,17 +98,8 @@ public class InventoryItem\n
 #4{0 1 ""}
 #4{0 1 ""}
 }
-:JLSFriendDeclare.286331408{#4{8 9 "46578944"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{17 18 "Class Declaration"}
- 0.299999 0.88 6.8 33  5 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 0  0 #4{0 1 ""}
 }
-}
-:CLSCSSem.1118481{ 56  51 @11 @3 @65 @0 #6{16 0}
+:CLSCSSem.1118481{ 56  51 @15 @30 @53 @0 #6{16 0}
 #6{16 1@38 }
 #6{16 0}
 #6{16 0}
@@ -109,7 +109,7 @@ public class InventoryItem\n
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #6{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@53 @26 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@61 @3 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #6{16 0}
