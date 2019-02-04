@@ -30,21 +30,29 @@
 @0 #4{23 24 "new List<PlaceHolder>()"}
 #4{16 17 "[SerializeField]"}
 }
-:SLSProtectMethod.286331408{#4{8 9 "90855032"}
+:SLSProtectMethod.286331408{#4{8 9 "46607664"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
- 1.3 0.88 4 21  8 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{5 6 "Awake"}
+ 1.3 0.88 2 10  7 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{70 241 "\[\n
-  Debug.Log(\"Hiding canvas\");\n
-  this.gameObject.SetActive(false);\n
+ 1  1 #4{235 1409 "\[\n
+/*\n
+   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
+   Assert.IsNotNull(placeHolder);\n
+   placeHolder.SetInventory(inventory);\n
+*/\n
+  foreach(PlaceHolder holder in placeHolders)\n
+  \[\n
+\tholder.SetInventory(inventory);\n
+  \]\n
+\n
 \]\n
 "}
-#4{10 16 "HideCanvas"}
-#4{4 14 "void"}
-#4{42 43 "object sender = null,EventArgs args = null"}
+#4{5 6 "Awake"}
+#4{4 5 "void"}
+#4{0 1 ""}
 #4{0 1 ""}
  0}
 #6{#4{8 9 "90855033"}
@@ -75,29 +83,21 @@
 #4{42 43 "object sender = null,EventArgs args = null"}
 #4{0 1 ""}
  0}
-#6{#4{8 9 "46607664"}
+#6{#4{8 9 "90855032"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Awake"}
- 1.3 0.88 2 10  7 #4{0 1 ""}
+@0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
+ 1.3 0.88 4 21  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{235 1409 "\[\n
-/*\n
-   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
-   Assert.IsNotNull(placeHolder);\n
-   placeHolder.SetInventory(inventory);\n
-*/\n
-  foreach(PlaceHolder holder in placeHolders)\n
-  \[\n
-\tholder.SetInventory(inventory);\n
-  \]\n
-\n
+ 1  1 #4{70 241 "\[\n
+  Debug.Log(\"Hiding canvas\");\n
+  this.gameObject.SetActive(false);\n
 \]\n
 "}
-#4{5 6 "Awake"}
-#4{4 5 "void"}
-#4{0 1 ""}
+#4{10 16 "HideCanvas"}
+#4{4 14 "void"}
+#4{42 43 "object sender = null,EventArgs args = null"}
 #4{0 1 ""}
  0}
 #6{#4{8 9 "46607665"}
@@ -342,11 +342,11 @@ using System.Collections.Generic;"}
 @0 #4{5 6 "false"}
 #4{0 1 ""}
 }
-:SLSPublicMember.286331409{#4{8 9 "46523992"}
+#3{#4{8 9 "46523992"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{5 6 "plane"}
- 1.3 1.88 2 1  40 #4{0 1 ""}
+ 3 1.88 2 19  37 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
  1  1 #4{5 6 "plane"}
@@ -392,22 +392,22 @@ using System.Collections.Generic;"}
  0}
 }
 :CLSCSSem.1118481{ 56  51 @105 @181 @131 @0 #5{16 0}
-#5{16 5@3 @139 @154 @189 @18 }
+#5{16 6@3 @139 @154 @189 @18 @204 }
 #5{16 0}
-#5{16 10@57 @81 @33 @45 @119 @93 @169 @219 @69 @231 }
+#5{16 10@33 @81 @57 @45 @119 @93 @169 @219 @69 @231 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @204 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #5{16 0}
  0}
 :Float.17{0 }
-#12{1 }
-#12{0 }
-#12{1 }
+#11{1 }
+#11{0 }
+#11{1 }
 }

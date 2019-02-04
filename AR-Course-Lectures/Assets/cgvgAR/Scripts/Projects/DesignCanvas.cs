@@ -24,8 +24,7 @@ class DesignCanvas : MonoBehaviour
     protected bool designModeActive = false;
     [SerializeField]
     protected List<PlaceHolder> placeHolders = new List<PlaceHolder>();
-
-    public GameObject plane = null;
+    protected GameObject plane = null;
 
 
     protected void Awake()
