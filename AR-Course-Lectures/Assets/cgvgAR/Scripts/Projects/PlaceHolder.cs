@@ -31,6 +31,8 @@ static string DESIGN_FILENAME = "DesignData.dat";
     protected Camera cam = null;
     protected MeshRenderer renderer;
     protected PlaceableInventory inventory;
+    [SerializeField]
+    protected bool hidePlaceholder = true;
 
     public float DELTA = 0.01f;
     public Orientation orientation;
@@ -99,7 +101,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
     protected override void OnTrackingFound(object sender,EventArgs args)
     {
       base.OnTrackingFound(sender, args);
-      renderer.enabled = false;
+      renderer.enabled = !hidePlaceholder;
     }
 
 
@@ -168,7 +170,7 @@ static string DESIGN_FILENAME = "DesignData.dat";
                                     reader.ReadSingle(),
                                     reader.ReadSingle());
     
-      	go.AddComponent<PlaceableObject>();
+      	//go.AddComponent<PlaceableObject>();
         }
     
     

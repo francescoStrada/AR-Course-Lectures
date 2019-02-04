@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using System;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 // global declaration end
 
@@ -21,15 +22,23 @@ class DesignCanvas : MonoBehaviour
     [SerializeField]
     protected GameObject buttonPrefab;
     protected bool designModeActive = false;
+    [SerializeField]
+    protected List<PlaceHolder> placeHolders = new List<PlaceHolder>();
 
     public GameObject plane = null;
 
 
     protected void Awake()
     {
+    /*
        placeHolder = plane.gameObject.GetComponent<PlaceHolder>();
        Assert.IsNotNull(placeHolder);
        placeHolder.SetInventory(inventory);
+    */
+      foreach(PlaceHolder holder in placeHolders)
+      {
+    	holder.SetInventory(inventory);
+      }
     
     }
 
@@ -51,6 +60,13 @@ class DesignCanvas : MonoBehaviour
     {
       if(!ApplicationManager.Instance.IsDesignMode)
     	return;
+    
+      ARMarker marker = null;
+      if(sender != null)
+      	marker = (ARMarker)sender;
+    
+      if(marker != null)
+    	placeHolder = marker.GetComponentInChildren<PlaceHolder>();
     
       Debug.Log("Showing canvas");
       this.gameObject.SetActive(true);
@@ -101,13 +117,18 @@ class DesignCanvas : MonoBehaviour
 
     protected void Start()
     {
+      foreach(PlaceHolder holder in placeHolders)
+      {
+    	ARMarker marker = holder.Marker;
     
-       ARMarker marker = placeHolder.Marker;
-    
-       marker.TrackingLost += HideCanvas;
-       marker.TrackingFound += ShowCanvas;
-    
-    
+       	marker.TrackingLost += HideCanvas;
+       	marker.TrackingFound += ShowCanvas;
+      }
+    /*
+      ARMarker marker = placeHolder.Marker;
+      marker.TrackingLost += HideCanvas;
+      marker.TrackingFound += ShowCanvas;
+    */
       ApplicationManager.Instance.StartedDesignMode += ((sender, args) => designModeActive = true );
       ApplicationManager.Instance.StoppedDesignMode += ((sender, args) => 
     							{
@@ -148,11 +169,15 @@ class DesignCanvas : MonoBehaviour
     
        CreateIconList();
     
+      foreach(PlaceHolder holder in placeHolders)
+      {
+    	ARMarker marker = holder.Marker;
+       	if(marker.IsTracked())
+    		ShowCanvas(marker);
+       	else
+    		HideCanvas();
+      }
     
-       if(marker.IsTracked())
-    	ShowCanvas();
-       else
-    	HideCanvas();
     }
 
 

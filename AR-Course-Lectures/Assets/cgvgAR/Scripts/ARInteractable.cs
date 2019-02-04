@@ -83,7 +83,11 @@ class ARInteractable : MonoBehaviour
 
     public ARMarker Marker
     {
-      get {
+      get 
+      {
+    	if(marker == null)
+    		Initialize();
+    	
     	return marker;
       }
     }

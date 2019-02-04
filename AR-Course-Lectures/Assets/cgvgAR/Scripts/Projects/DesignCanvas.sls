@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{32 18:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
+:ArrayOb.273{6:Dictionary.4369{32 19:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{11 12 "placeHolder"}
@@ -14,47 +14,23 @@
 @0 #4{0 1 ""}
 #4{0 1 ""}
 }
-:SLSProtectMethod.286331408{#4{8 9 "46607664"}
+#3{#4{8 9 "14493832"}
 #1{2@0 @0 }
 #1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{5 6 "Awake"}
- 1.3 0.88 2 10  7 #4{0 1 ""}
+@0  8 2 0.4 0 0 #4{12 13 "placeHolders"}
+ 1.6 1.88 4.8 10  37 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{142 1409 "\[\n
-   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
-   Assert.IsNotNull(placeHolder);\n
-   placeHolder.SetInventory(inventory);\n
-\n
-\]\n
-"}
-#4{5 6 "Awake"}
-#4{4 5 "void"}
+ 1  1 #4{12 13 "placeHolders"}
+#4{17 18 "List<PlaceHolder>"}
 #4{0 1 ""}
-#4{0 1 ""}
- 0}
-#6{#4{8 9 "90855033"}
-#1{2@0 @0 }
-#1{2@0 @0 }
-@0  8 1 0.4 0 0 #4{10 11 "ShowCanvas"}
- 1.3 0.88 4 21  9 #4{0 1 ""}
-#4{0 1 ""}
-@0  0 0 1
- 1  1 #4{130 276 "\[\n
-  if(!ApplicationManager.Instance.IsDesignMode)\n
-\treturn;\n
-\n
-  Debug.Log(\"Showing canvas\");\n
-  this.gameObject.SetActive(true);\n
- \n
-\]\n
-"}
-#4{10 16 "ShowCanvas"}
-#4{4 14 "void"}
-#4{42 43 "object sender = null,EventArgs args = null"}
-#4{0 1 ""}
- 0}
-#6{#4{8 9 "90855032"}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{23 24 "new List<PlaceHolder>()"}
+#4{16 17 "[SerializeField]"}
+}
+:SLSProtectMethod.286331408{#4{8 9 "90855032"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{10 11 "HideCanvas"}
@@ -71,6 +47,59 @@
 #4{42 43 "object sender = null,EventArgs args = null"}
 #4{0 1 ""}
  0}
+#6{#4{8 9 "90855033"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{10 11 "ShowCanvas"}
+ 1.3 0.88 4 21  9 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{291 292 "\[\n
+  if(!ApplicationManager.Instance.IsDesignMode)\n
+\treturn;\n
+\n
+  ARMarker marker = null;\n
+  if(sender != null)\n
+  \tmarker = (ARMarker)sender;\n
+\n
+  if(marker != null)\n
+\tplaceHolder = marker.GetComponentInChildren<PlaceHolder>();\n
+\n
+  Debug.Log(\"Showing canvas\");\n
+  this.gameObject.SetActive(true);\n
+ \n
+\]\n
+"}
+#4{10 16 "ShowCanvas"}
+#4{4 14 "void"}
+#4{42 43 "object sender = null,EventArgs args = null"}
+#4{0 1 ""}
+ 0}
+#6{#4{8 9 "46607664"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{5 6 "Awake"}
+ 1.3 0.88 2 10  7 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{235 1409 "\[\n
+/*\n
+   placeHolder = plane.gameObject.GetComponent<PlaceHolder>();\n
+   Assert.IsNotNull(placeHolder);\n
+   placeHolder.SetInventory(inventory);\n
+*/\n
+  foreach(PlaceHolder holder in placeHolders)\n
+  \[\n
+\tholder.SetInventory(inventory);\n
+  \]\n
+\n
+\]\n
+"}
+#4{5 6 "Awake"}
+#4{4 5 "void"}
+#4{0 1 ""}
+#4{0 1 ""}
+ 0}
 #6{#4{8 9 "46607665"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -78,14 +107,19 @@
  1.3 0.88 2 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{1458 1459 "\[\n
+ 1  1 #4{1723 1724 "\[\n
+  foreach(PlaceHolder holder in placeHolders)\n
+  \[\n
+\tARMarker marker = holder.Marker;\n
 \n
-   ARMarker marker = placeHolder.Marker;\n
-\n
-   marker.TrackingLost += HideCanvas;\n
-   marker.TrackingFound += ShowCanvas;\n
-\n
-\n
+   \tmarker.TrackingLost += HideCanvas;\n
+   \tmarker.TrackingFound += ShowCanvas;\n
+  \]\n
+/*\n
+  ARMarker marker = placeHolder.Marker;\n
+  marker.TrackingLost += HideCanvas;\n
+  marker.TrackingFound += ShowCanvas;\n
+*/\n
   ApplicationManager.Instance.StartedDesignMode += ((sender, args) => designModeActive = true );\n
   ApplicationManager.Instance.StoppedDesignMode += ((sender, args) => \n
 \t\t\t\t\t\t\t\[\n
@@ -126,11 +160,15 @@
 \n
    CreateIconList();\n
 \n
+  foreach(PlaceHolder holder in placeHolders)\n
+  \[\n
+\tARMarker marker = holder.Marker;\n
+   \tif(marker.IsTracked())\n
+\t\tShowCanvas(marker);\n
+   \telse\n
+\t\tHideCanvas();\n
+  \]\n
 \n
-   if(marker.IsTracked())\n
-\tShowCanvas();\n
-   else\n
-\tHideCanvas();\n
 \]\n
 "}
 #4{5 6 "Start"}
@@ -282,10 +320,11 @@
  0.299999 0.88 7.2 33  3 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 0  0 #4{84 85 "using UnityEngine;\n
+ 0  0 #4{118 119 "using UnityEngine;\n
 using UnityEngine.Assertions;\n
 using System;\n
-using UnityEngine.UI;"}
+using UnityEngine.UI;\n
+using System.Collections.Generic;"}
 }
 #3{#4{8 9 "46718984"}
 #1{2@0 @0 }
@@ -352,16 +391,16 @@ using UnityEngine.UI;"}
 #4{0 1 ""}
  0}
 }
-:CLSCSSem.1118481{ 56  51 @90 @166 @116 @0 #5{16 0}
-#5{16 4@3 @124 @139 @174 }
+:CLSCSSem.1118481{ 56  51 @105 @181 @131 @0 #5{16 0}
+#5{16 5@3 @139 @154 @189 @18 }
 #5{16 0}
-#5{16 10@18 @66 @42 @30 @104 @78 @154 @204 @54 @216 }
+#5{16 10@57 @81 @33 @45 @119 @93 @169 @219 @69 @231 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #5{16 0}
-#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @189 @0 @0 @0 }
+#1{38@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @204 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}

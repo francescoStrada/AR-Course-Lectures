@@ -55,18 +55,6 @@ const float SCALE_FACTOR = 0.1f;
        base.Awake();
     
        cam = FindObjectOfType<VuforiaBehaviour>().GetComponent<Camera>();
-    
-    /*
-       Collider collider = GetComponent<Collider>();
-       if(collider == null)
-       {
-    	Collider[] colliders = GetComponentsInChildren<Collider>();
-    	foreach(var coll in colliders)
-    	{
-    		AddComponent(coll)
-    	}
-       }
-    */
        
     
     /*
