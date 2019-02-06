@@ -25,6 +25,8 @@ class DesignCanvas : MonoBehaviour
     [SerializeField]
     protected List<PlaceHolder> placeHolders = new List<PlaceHolder>();
     protected GameObject plane = null;
+    [SerializeField]
+    protected int iconsPerRow = 3;
 
 
     protected void Awake()
@@ -80,6 +82,17 @@ class DesignCanvas : MonoBehaviour
       GridLayoutGroup group = GetComponentInChildren<GridLayoutGroup>();
       Assert.IsNotNull(group);
     
+      RectTransform groupRT = (RectTransform)group.transform;
+      float iconSize = groupRT.rect.width / (float)iconsPerRow;
+      float spacing = iconSize * 0.05f;
+    
+      Debug.Log("Total width: " + groupRT.rect.width + "   IconSize: " + iconSize + "   Spacing: " + spacing);
+      group.spacing = new Vector2(spacing, spacing);
+      
+      iconSize = iconSize - spacing;
+      Debug.Log("New icon size: " + iconSize);
+    
+      group.cellSize = new Vector2(iconSize, iconSize);
     
       for(int i=0; i < inventory.Items.Count; i++)
       {

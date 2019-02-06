@@ -1,4 +1,4 @@
-:ArrayOb.273{6:Dictionary.4369{32 19:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
+:ArrayOb.273{6:Dictionary.4369{32 20:SLSProtectMember.286331409{:String.17{8 9 "46524432"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 2 0.4 0 0 #4{11 12 "placeHolder"}
@@ -227,15 +227,26 @@
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{14 15 "CreateIconList"}
- 1.3 0.879999 5.6 33  30 #4{0 1 ""}
+ 1.3 0.879999 5.6 21  13 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{562 563 "\[\n
+ 1  1 #4{1005 1028 "\[\n
   Assert.IsNotNull(inventory);\n
 \n
   GridLayoutGroup group = GetComponentInChildren<GridLayoutGroup>();\n
   Assert.IsNotNull(group);\n
 \n
+  RectTransform groupRT = (RectTransform)group.transform;\n
+  float iconSize = groupRT.rect.width / (float)iconsPerRow;\n
+  float spacing = iconSize * 0.05f;\n
+\n
+  Debug.Log(\"Total width: \" + groupRT.rect.width + \"   IconSize: \" + iconSize + \"   Spacing: \" + spacing);\n
+  group.spacing = new Vector2(spacing, spacing);\n
+  \n
+  iconSize = iconSize - spacing;\n
+  Debug.Log(\"New icon size: \" + iconSize);\n
+\n
+  group.cellSize = new Vector2(iconSize, iconSize);\n
 \n
   for(int i=0; i < inventory.Items.Count; i++)\n
   \[\n
@@ -256,6 +267,22 @@
 #4{0 1 ""}
 #4{0 1 ""}
  0}
+#3{#4{8 9 "14482880"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 2 0.4 0 0 #4{11 12 "iconsPerRow"}
+ 1.8 1.88 4.4 28  37 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{11 12 "iconsPerRow"}
+#4{3 4 "int"}
+#4{0 1 ""}
+#5{16 0}
+#5{16 0}
+#4{1 2 "S"}
+@0 #4{1 2 "3"}
+#4{16 17 "[SerializeField]"}
+}
 :JLSFriendDeclare.286331408{#4{8 9 "66931384"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -391,10 +418,10 @@ using System.Collections.Generic;"}
 #4{0 1 ""}
  0}
 }
-:CLSCSSem.1118481{ 56  51 @105 @181 @131 @0 #5{16 0}
-#5{16 6@3 @139 @154 @189 @18 @204 }
+:CLSCSSem.1118481{ 56  51 @105 @196 @146 @0 #5{16 0}
+#5{16 7@3 @154 @169 @204 @18 @219 @131 }
 #5{16 0}
-#5{16 10@33 @81 @57 @45 @119 @93 @169 @219 @69 @231 }
+#5{16 10@33 @81 @57 @45 @119 @93 @184 @234 @69 @246 }
 #5{16 0}
 #5{16 0}
 #5{16 0}
