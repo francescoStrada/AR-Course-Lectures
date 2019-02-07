@@ -57,6 +57,12 @@ class ARInteractiveVideo : ARInteractable
     }
 
 
+    protected override void Awake()
+    {
+      base.Awake();
+    }
+
+
 
 
     public override void Interact()

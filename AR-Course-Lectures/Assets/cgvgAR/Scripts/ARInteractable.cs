@@ -19,7 +19,7 @@ class ARInteractable : MonoBehaviour
     public bool activateOnTrackingFound = false;
 
 
-    protected void Awake()
+    protected virtual void Awake()
     {
       Initialize();
     }

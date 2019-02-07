@@ -43,11 +43,6 @@ class Subtitles : ARInteractable
     public SubtitlesMode mode = SubtitlesMode.None;
 
 
-    protected void Awake()
-    {
-    }
-
-
     protected override void OnTrackingLost(object sender,EventArgs args)
     {
       base.OnTrackingLost(sender, args);
@@ -65,7 +60,7 @@ class Subtitles : ARInteractable
       base.OnTrackingFound(sender, args);
     
       // add specific behaviour at target found
-      if(activateOnTrackingFound && text != null)
+      if(activateOnTrackingFound && text != null && !isPlaying)
       {
     	Play();
       }
@@ -86,7 +81,7 @@ class Subtitles : ARInteractable
       // add specific behaviour at startup
       text = GetComponentInChildren<Text>(true);
     
-      Play();
+      //Play();
     }
 
 
@@ -112,6 +107,12 @@ class Subtitles : ARInteractable
       }
     
       Invoke("ChangeSubtitle", waitTime);
+    }
+
+
+    protected override void Awake()
+    {
+      base.Awake();
     }
 
 
@@ -142,6 +143,7 @@ class Subtitles : ARInteractable
     public void Pause()
     {
       isPlaying = false;
+      CancelInvoke();
     }
 
 

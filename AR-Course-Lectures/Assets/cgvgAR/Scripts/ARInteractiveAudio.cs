@@ -58,6 +58,12 @@ class ARInteractiveAudio : ARInteractable
     }
 
 
+    protected override void Awake()
+    {
+      base.Awake();
+    }
+
+
 
 
     public override void Interact()
