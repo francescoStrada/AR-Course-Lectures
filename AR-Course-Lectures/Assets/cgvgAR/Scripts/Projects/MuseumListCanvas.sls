@@ -15,10 +15,10 @@ using System.Collections.Generic;"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{14 15 "FillMuseumList"}
- 1.3 0.880004 5.6 20  7 #4{0 1 ""}
+ 1.3 0.88 5.6 20  7 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{775 776 "\[\n
+ 1  1 #4{733 839 "\[\n
   Transform contentHolder = GetComponentInChildren<VerticalLayoutGroup>().transform;\n
   for(int i= 0; i < museumInventory.Museums.Count; i++)\n
   \[\n
@@ -31,12 +31,11 @@ using System.Collections.Generic;"}
 \tButton directionsButton = museumItem.GetComponentInChildren<Button>();\n
 \tdirectionsButton.onClick.AddListener(() => \n
 \t\t\[\n
-\t\t\tif(FakeMapNavigationManager.Instance != null)\n
-\t\t\t\tFakeMapNavigationManager.Instance.StartMaps();\n
-\n
 \t\t\tgameObject.SetActive(false);\n
-\t\t\]);\n
-\t\n
+\n
+\t\t\tif(MuseumSelected != null)\n
+\t\t\t\tMuseumSelected.Invoke();\n
+\t\t\]);\t\n
   \]\n
 \]\n
 "}
@@ -100,7 +99,9 @@ using System.Collections.Generic;"}
  1.3 0.88 2 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{4 1724 "\[\n
+ 1  1 #4{62 1724 "\[\n
+  Canvas c = GetComponent<Canvas>();\n
+  c.enabled = false;\n
 \]\n
 "}
 #4{5 6 "Start"}
@@ -114,11 +115,12 @@ using System.Collections.Generic;"}
 @0  52 45 0.4 0 0 #4{32 33 "MuseumListCanvas : MonoBehaviour"}
  17.1486 2.2 20.48 4  0 #4{0 1 ""}
 #4{0 1 ""}
-@0  38 5 1
+@0  0.853816 4.04449 0
  0  0 #4{16 17 "MuseumListCanvas"}
 #4{13 14 "MonoBehaviour"}
 #4{0 13 ""}
-#7{16 0}
+#7{16 1#4{35 36 "public event Action MuseumSelected;"}
+}
 #7{16 0}
 #4{0 2 ""}
 @0 #4{0 1 ""}
@@ -133,7 +135,7 @@ using System.Collections.Generic;"}
  0  0 #4{0 1 ""}
 }
 }
-:CLSCSSem.1118481{ 56  51 @77 @3 @91 @0 #7{16 0}
+:CLSCSSem.1118481{ 56  51 @77 @3 @92 @0 #7{16 0}
 #7{16 2@50 @23 }
 #7{16 0}
 #7{16 3@38 @65 @11 }

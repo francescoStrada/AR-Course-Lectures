@@ -15,6 +15,7 @@ using System;
 
 class ARInteractiveAnimation : ARInteractable
 {
+    public event Action AnimationStopped;
 
     protected PlayableDirector director;
 
@@ -25,6 +26,8 @@ class ARInteractiveAnimation : ARInteractable
       
       // add specific behaviour at startup
       director = GetComponentInChildren<PlayableDirector>(true);
+      if(director != null)
+    	director.stopped += DirectorStopped;
     }
 
 
@@ -57,12 +60,22 @@ class ARInteractiveAnimation : ARInteractable
     {
       base.OnDestroy();
       // add specific behaviour at destroy
+    
+      if(director != null)
+    	director.stopped -= DirectorStopped;
     }
 
 
     protected override void Awake()
     {
       base.Awake();
+    }
+
+
+    protected void DirectorStopped(PlayableDirector aDirector)
+    {
+      if(AnimationStopped != null)
+    	AnimationStopped.Invoke();
     }
 
 

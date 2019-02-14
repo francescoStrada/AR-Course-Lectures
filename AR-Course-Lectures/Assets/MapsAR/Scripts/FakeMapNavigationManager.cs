@@ -20,7 +20,11 @@ public class FakeMapNavigationManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start ()
-    {
+	{
+
+	    MuseumListCanvas mlc = FindObjectOfType<MuseumListCanvas>();
+        mlc.MuseumSelected += delegate { StartMaps();};
+
         instance = this;
         if (mapCamera != null)
             mapCamera.enabled = false;
@@ -62,6 +66,8 @@ public class FakeMapNavigationManager : MonoBehaviour {
 
         if (provider != null)
             provider.paused = true;
+
+        AppStateManager.State = AppStateManager.AppState.DestinationReached;
     }
 
     private IEnumerator DelayedStart(float delayTime)

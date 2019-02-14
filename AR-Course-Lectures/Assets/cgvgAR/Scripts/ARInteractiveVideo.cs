@@ -16,6 +16,7 @@ class ARInteractiveVideo : ARInteractable
 {
 
     protected VideoPlayer videoPlayer;
+    protected Canvas canvas = null;
 
 
     protected override void Start()
@@ -25,7 +26,11 @@ class ARInteractiveVideo : ARInteractable
       if(videoPlayer != null)
       {
     	videoPlayer.isLooping = true;
-      }  
+      }
+    	
+      canvas = GetComponent<Canvas>();  
+      if(canvas != null)
+    	canvas.enabled = false;
     }
 
 
@@ -63,6 +68,13 @@ class ARInteractiveVideo : ARInteractable
     }
 
 
+    protected void Update()
+    {
+      if(Input.GetKeyDown(KeyCode.P))
+    	Play();
+    }
+
+
 
 
     public override void Interact()
@@ -73,6 +85,42 @@ class ARInteractiveVideo : ARInteractable
     	if(!videoPlayer.isPlaying)
     		videoPlayer.Play();
     	else
+    		videoPlayer.Pause();
+      }
+    }
+
+
+    public override void Play()
+    {
+      base.Play();
+    
+      if(canvas != null)
+      {
+    	Screen.orientation = ScreenOrientation.LandscapeLeft;
+    	canvas.enabled = true;
+      }
+    	
+      if(videoPlayer != null)
+      {
+    	if(!videoPlayer.isPlaying)
+    		videoPlayer.Play();
+      }
+    }
+
+
+    public override void Pause()
+    {
+      base.Pause();
+    
+      if(canvas != null)
+      {
+    	Screen.orientation = ScreenOrientation.Portrait;
+    	canvas.enabled = false;
+      }
+    
+      if(videoPlayer != null)
+      {
+    	if(!videoPlayer.isPlaying)
     		videoPlayer.Pause();
       }
     }

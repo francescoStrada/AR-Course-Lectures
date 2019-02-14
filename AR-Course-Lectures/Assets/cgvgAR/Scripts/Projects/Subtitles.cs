@@ -39,6 +39,8 @@ class Subtitles : ARInteractable
     protected List<SubtitleItem> subtitles = new List<SubtitleItem>();
     protected int itemIdx = 0;
     protected Text text;
+    protected bool completed = false;
+    protected Canvas canvas = null;
 
     public SubtitlesMode mode = SubtitlesMode.None;
 
@@ -58,6 +60,13 @@ class Subtitles : ARInteractable
     protected override void OnTrackingFound(object sender,EventArgs args)
     {
       base.OnTrackingFound(sender, args);
+    
+      if(completed)
+      {
+    	canvas.enabled = false;
+    	return;
+      }
+    	
     
       // add specific behaviour at target found
       if(activateOnTrackingFound && text != null && !isPlaying)
@@ -81,6 +90,8 @@ class Subtitles : ARInteractable
       // add specific behaviour at startup
       text = GetComponentInChildren<Text>(true);
     
+      canvas = GetComponentInChildren<Canvas>();
+    
       //Play();
     }
 
@@ -103,7 +114,14 @@ class Subtitles : ARInteractable
     		itemIdx = 0;
     	}
     	else
+    	{
+    		if(canvas != null)
+    			canvas.enabled = false;
+    
+    		completed = true;
     		return;
+    	}
+    		
       }
     
       Invoke("ChangeSubtitle", waitTime);
@@ -122,6 +140,9 @@ class Subtitles : ARInteractable
     {
       base.Interact();
     
+      if(completed)
+    	return;
+    
       if(text != null)
       {
     	if(!isPlaying)
@@ -132,24 +153,22 @@ class Subtitles : ARInteractable
     }
 
 
-    public void Play()
+    public override void Play()
     {
-      isPlaying = true;
+      if(completed)
+    	return;
+    
+      base.Play();
       itemIdx = 0;
       Invoke("ChangeSubtitle",0f);
     }
 
 
-    public void Pause()
+    public override void Pause()
     {
+      base.Pause();
       isPlaying = false;
       CancelInvoke();
-    }
-
-
-    public bool isPlaying
-    {
-      protected set; get;
     }
 
 

@@ -1,13 +1,16 @@
-:ArrayOb.273{6:Dictionary.4369{16 10:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
+:ArrayOb.273{6:Dictionary.4369{16 11:SLSProtectMethod.286331408{:String.17{8 9 "90856600"}
 #1{2@0 @0 }
 #1{2@0 @0 }
 @0  8 1 0.4 0 0 #4{9 10 "OnDestroy"}
  1.3 0.88 3.6 10  9 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{63 100 "\[\n
+ 1  1 #4{125 126 "\[\n
   base.OnDestroy();\n
   // add specific behaviour at destroy\n
+\n
+  if(director != null)\n
+\tdirector.stopped -= DirectorStopped;\n
 \]\n
 "}
 #4{9 10 "OnDestroy"}
@@ -44,11 +47,13 @@ using System;"}
  1.3 0.88 2 10  8 #4{0 1 ""}
 #4{0 1 ""}
 @0  0 0 1
- 1  1 #4{123 402 "\[\n
+ 1  1 #4{184 402 "\[\n
   base.Start();\n
   \n
   // add specific behaviour at startup\n
   director = GetComponentInChildren<PlayableDirector>(true);\n
+  if(director != null)\n
+\tdirector.stopped += DirectorStopped;\n
 \]\n
 "}
 #4{5 6 "Start"}
@@ -123,15 +128,33 @@ using System;"}
 @0  52 45 0.4 0 0 #4{39 40 "ARInteractiveAnimation : ARInteractable"}
  15.8686 2.2 24.96 4  0 #4{0 1 ""}
 #4{0 1 ""}
-@0  38 5 1
+@0  1.36093 3.74855 0
  0  0 #4{22 23 "ARInteractiveAnimation"}
 #4{14 29 "ARInteractable"}
 #4{0 13 ""}
-#8{16 0}
+#8{16 1#4{37 38 "public event Action AnimationStopped;"}
+}
 #8{16 0}
 #4{0 2 ""}
 @0 #4{0 1 ""}
 }
+#3{#4{8 9 "65079320"}
+#1{2@0 @0 }
+#1{2@0 @0 }
+@0  8 1 0.4 0 0 #4{15 16 "DirectorStopped"}
+ 1.3 0.88 6 21  11 #4{0 1 ""}
+#4{0 1 ""}
+@0  0 0 1
+ 1  1 #4{63 64 "\[\n
+  if(AnimationStopped != null)\n
+\tAnimationStopped.Invoke();\n
+\]\n
+"}
+#4{15 16 "DirectorStopped"}
+#4{4 5 "void"}
+#4{26 27 "PlayableDirector aDirector"}
+#4{0 1 ""}
+ 0}
 #3{#4{8 9 "90855818"}
 #1{2@0 @0 }
 #1{2@0 @0 }
@@ -181,14 +204,14 @@ using System;"}
 :CLSCSSem.1118481{ 56  51 @82 @15 @23 @0 #8{16 0}
 #8{16 1@67 }
 #8{16 0}
-#8{16 5@31 @55 @43 @3 @96 }
+#8{16 6@31 @55 @43 @3 @109 @97 }
 #8{16 0}
 #8{16 0}
 #8{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #8{16 0}
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
-#1{16@108 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
+#1{16@121 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #1{16@0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 @0 }
 #4{0 1 ""}
 #8{16 0}

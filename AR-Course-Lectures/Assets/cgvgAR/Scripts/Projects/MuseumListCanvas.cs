@@ -15,6 +15,7 @@ using System.Collections.Generic;
 
 class MuseumListCanvas : MonoBehaviour
 {
+    public event Action MuseumSelected;
 
     [SerializeField]
     protected MuseumInventory museumInventory;
@@ -30,6 +31,8 @@ class MuseumListCanvas : MonoBehaviour
 
     protected void Start()
     {
+      Canvas c = GetComponent<Canvas>();
+      c.enabled = false;
     }
 
 
@@ -47,12 +50,11 @@ class MuseumListCanvas : MonoBehaviour
     	Button directionsButton = museumItem.GetComponentInChildren<Button>();
     	directionsButton.onClick.AddListener(() => 
     		{
-    			if(FakeMapNavigationManager.Instance != null)
-    				FakeMapNavigationManager.Instance.StartMaps();
-    
     			gameObject.SetActive(false);
-    		});
-    	
+    
+    			if(MuseumSelected != null)
+    				MuseumSelected.Invoke();
+    		});	
       }
     }
 

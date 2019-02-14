@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/cgvgAR/Samples/Museums/Scenes/MuseumsSample.unity
+    guid: 9ab6f9bfdd1c03145a932e5621186345
+  - enabled: 0
     path: Assets/cgvgAR/Samples/DesignMode/Scenes/DesignModeSample.unity
     guid: 5d449df780654964da201d4e1ec50466
   - enabled: 0

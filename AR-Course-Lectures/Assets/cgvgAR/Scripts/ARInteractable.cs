@@ -56,31 +56,6 @@ class ARInteractable : MonoBehaviour
 
 
 
-    public virtual void Interact()
-    {
-      // implement specific behaviour
-      if(activateOnTrackingFound)
-    	return;
-      
-      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
-    }
-
-
-    public virtual void LongInteract()
-    {
-      // implement specific behaviour
-      if(activateOnTrackingFound)
-    	return;
-      
-      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
-    }
-
-
-    public virtual void Drag(Vector3 position,Vector3 delta)
-    {
-    }
-
-
     public ARMarker Marker
     {
       get 
@@ -90,6 +65,12 @@ class ARInteractable : MonoBehaviour
     	
     	return marker;
       }
+    }
+
+
+    public bool isPlaying
+    {
+      protected set; get;
     }
 
 
@@ -123,6 +104,26 @@ class ARInteractable : MonoBehaviour
     }
 
 
+    public virtual void Interact()
+    {
+      // implement specific behaviour
+      if(activateOnTrackingFound)
+    	return;
+      
+      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
+    }
+
+
+    public virtual void LongInteract()
+    {
+      // implement specific behaviour
+      if(activateOnTrackingFound)
+    	return;
+      
+      Debug.Log("Executing Interact Behaviour on GO: " + gameObject.name);
+    }
+
+
     public virtual void Resize(float delta)
     {
     }
@@ -130,6 +131,23 @@ class ARInteractable : MonoBehaviour
 
     public virtual void Rotate(float delta)
     {
+    }
+
+
+    public virtual void Drag(Vector3 position,Vector3 delta)
+    {
+    }
+
+
+    public virtual void Play()
+    {
+      isPlaying = true;
+    }
+
+
+    public virtual void Pause()
+    {
+      isPlaying = false;
     }
 
 
